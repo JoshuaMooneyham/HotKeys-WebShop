@@ -1,8 +1,5 @@
-
 function App() {
-  return (
-    console.log('hello')
-  );
+  //return();
 }
 
 export default App;

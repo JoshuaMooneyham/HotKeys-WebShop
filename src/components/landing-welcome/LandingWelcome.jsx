@@ -8,3 +8,11 @@ function LandingWelcome() {
             </div>
     </div>
 }
+
+function DeleteData(id) {
+    useEffect(() => {
+        fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
+            method: 'DELETE'
+        })
+    }, [])
+}
