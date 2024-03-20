@@ -1,9 +1,9 @@
 function LandingWelcome() {
     <div className='welcome-container'>
         {/* Need Image from Kera */}
-        <img src='' />
+        <img src='' className='welcome-banner'/>
             <div className='featured'>
-                <h1 className='featured-title'>FEATURED</h1>
+                <h2 className='featured-title'>FEATURED</h2>
                 <FeaturedCard />
             </div>
     </div>
