@@ -37,7 +37,7 @@ function PostData(obj) {
 }
 
 // ====={ PUT // Edit data of a given entry }=====
-function PutData(id, obj) { // <= takes an obj, will replace any properties shared between the 2
+function PutData(id, obj) { // <= takes an obj, will replace any properties shared between the 2 <<DOESN'T HAVE TO BE ALL PROPS>>
     useEffect(() => {
         fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
             method: 'PUT', 
