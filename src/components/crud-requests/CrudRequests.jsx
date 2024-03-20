@@ -11,7 +11,7 @@ function GetData() {
     return products
 }
 
-// ====={ DELETE // Removes given entry from data }=====
+// ====={ DELETE // Removes given entry from data, returns nothing }=====
 function DeleteData(id) {
     useEffect(() => {
         fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
