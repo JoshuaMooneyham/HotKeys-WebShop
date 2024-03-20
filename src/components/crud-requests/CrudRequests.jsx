@@ -17,7 +17,7 @@ function DeleteData(id) {
         fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
             method: 'DELETE'
         }) 
-    })
+    }, [])
 }
 
 // All of the following return nothing presently, but can be configured
