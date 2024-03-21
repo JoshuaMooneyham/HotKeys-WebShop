@@ -1,18 +1,15 @@
 function LandingWelcome() {
-    <div className='welcome-container'>
-        {/* Need Image from Kera */}
-        <img src='' className='welcome-banner'/>
-            <div className='featured'>
-                <h2 className='featured-title'>FEATURED</h2>
-                <FeaturedCard />
-            </div>
-    </div>
+    return (
+        <div className='welcome-container'>
+            {/* Need Image from Kera */}
+            <img src='welcome banner.png' className='welcome-banner'/>
+                <div className='featured'>
+                    <h2 className='featured-title'>FEATURED</h2>
+                    {/* placeholder, probably take a random dataset and map it? */}
+                    {/* <FeaturedCard /> */}
+                </div>
+        </div>
+    );
 }
 
-function DeleteData(id) {
-    useEffect(() => {
-        fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
-            method: 'DELETE'
-        })
-    }, [])
-}
+export default LandingWelcome;
