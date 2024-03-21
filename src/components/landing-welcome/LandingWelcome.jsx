@@ -1,25 +1,27 @@
-import { GetData, PostData, PutData, DeleteData } from '../crud-requests/CrudRequests.jsx'
+import { GetData, PostData, PutData, DeleteData, testObj } from '../crud-requests/CrudRequests.jsx'
+import FeaturedCard from '../featured-card/FeaturedCard.jsx'
 
-async function randomizedCall() {
+function randomizedCall() {
+    const results = GetData();
+
     const RANDOMLIST = []
-    let products = await GetData()
-    console.log(products)
     for (let i=0; i<6; i++) {
-        RANDOMLIST.push(products[Math.floor(Math.random()*products.lenth)])
+        RANDOMLIST.push(results[Math.floor(Math.random()*results.length)])
     }
     return RANDOMLIST;
 } 
 
 function LandingWelcome() {
-    let products = randomizedCall()
-    console.log(products)
+    let data = randomizedCall();
+    PostData(testObj);
+    console.log(GetData());
+    console.log(data)
     return (
         <div className='welcome-container'>
             <img src='welcome banner.png' className='welcome-banner'/>
                 <div className='featured'>
                     <h2 className='featured-title'>FEATURED</h2>
-                    {/* placeholder, probably take a random dataset and map it? */}
-                    {/* <FeaturedCard /> */}
+                    {/* {data.map(indiv => <FeaturedCard productListing={indiv}/>)} */}
                 </div>
         </div>
     );
