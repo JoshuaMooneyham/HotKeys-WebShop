@@ -6,7 +6,7 @@ function ShoppingList({item}){                          //Need to know what .som
                 <img src = {item.picture}></img>
             </div>
             <div>
-                <h3>{item.name}</h3>
+                <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <p>{item.price}</p>
             </div>
@@ -15,11 +15,11 @@ function ShoppingList({item}){                          //Need to know what .som
 }
 //Need to add to pull from search bar///
 function FetchApi(){
-    const [item, setItems] = useState([]);
-    fetch('https://api.escuelajs.co/api/v1/products'),then(response => response,json()).then(data => setItems(data));//Need API Name//
+    const [items, setItems] = useState([]);
+    fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data));
     return(
         <div className = "shopping.container">
-            {useSyncExternalStore.map(item =>
+            {items.map(item =>
                 <ShoppingList item = {item}/>)}
         </div>
     )
