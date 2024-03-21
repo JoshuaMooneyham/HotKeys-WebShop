@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // ====={ GET // Fetch the Data (returns the raw data) }=====
 export function GetData() {
@@ -54,10 +54,21 @@ export function PutData(id, obj) { // <= takes an obj, will replace any properti
 
 // ====={ Dummy Object I used to test POST // NEED THESE FIELDS!! }=====
 export let testObj = {
-    'title': "lorem ipsum",
+    'title': "Mountain Shirt",
     'price': 39,
-    'description': "whatever",
+    'description': "Shirt wit da mountain on it",
     'categoryId': 1,
-    'images': ['https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630']
+    'images': ['https://i.imgur.com/QkIa5tT.jpeg']
   }
 // ^^^ I'm fairly sure the keys don't have to be strings, since thats what stringify does, but this is how it was working for me just in case.
+
+// PHOTO FIXER
+export function photoFormatter(photos) {
+    const regex = /['\[\]"]/g; // Regular Expression - will catch any of the given characters
+    const fixedPhotos = [];
+    for (let element in photos) {
+        let newURL = photos[element].replace(regex, '');
+        fixedPhotos.push(newURL);
+    }
+    return fixedPhotos;
+}

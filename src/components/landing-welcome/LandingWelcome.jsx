@@ -1,27 +1,32 @@
-import { GetData, PostData, PutData, DeleteData, testObj } from '../crud-requests/CrudRequests.jsx'
+import { GetData, PostData, testObj } from '../crud-requests/CrudRequests.jsx'
 import FeaturedCard from '../featured-card/FeaturedCard.jsx'
 
 function randomizedCall() {
     const results = GetData();
+    const RANDOMLIST = [];
 
-    const RANDOMLIST = []
-    for (let i=0; i<6; i++) {
-        RANDOMLIST.push(results[Math.floor(Math.random()*results.length)])
-    }
+    while (results.length !== 0 && RANDOMLIST.length < 6) {
+        let randomNumber = Math.floor(Math.random()*results.length);
+
+        if (RANDOMLIST.includes(results[randomNumber])) {
+            continue;
+        } else {
+            RANDOMLIST.push(results[randomNumber]);
+        }
+    } 
     return RANDOMLIST;
-} 
+}
 
 function LandingWelcome() {
-    let data = randomizedCall();
-    PostData(testObj);
-    console.log(GetData());
-    console.log(data)
+    let featured = randomizedCall();
+    console.log(featured);
+
     return (
         <div className='welcome-container'>
             <img src='welcome banner.png' className='welcome-banner'/>
                 <div className='featured'>
                     <h2 className='featured-title'>FEATURED</h2>
-                    {/* {data.map(indiv => <FeaturedCard productListing={indiv}/>)} */}
+                    {featured.length > 0 ? featured.map(indiv => <FeaturedCard productListing={indiv}/>) : 'Loading..'}
                 </div>
         </div>
     );
