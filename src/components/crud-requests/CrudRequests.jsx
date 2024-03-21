@@ -1,5 +1,7 @@
+import React, { useState, useEffect } from "react";
+
 // ====={ GET // Fetch the Data (returns the raw data) }=====
-function GetData() {
+export function GetData() {
     const [products, setProducts] = useState([]);
 
     useEffect(()=> {
@@ -12,7 +14,7 @@ function GetData() {
 }
 
 // ====={ DELETE // Removes given entry from data, returns nothing }=====
-function DeleteData(id) {
+export function DeleteData(id) {
     useEffect(() => {
         fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
             method: 'DELETE'
@@ -24,7 +26,7 @@ function DeleteData(id) {
 // to return the given entry it affected 
 
 // ====={ POST // Add a new entry to Data }=====
-function PostData(obj) {
+export function PostData(obj) {
     useEffect(() => {
         fetch('https://api.escuelajs.co/api/v1/products', {
             method: 'POST', 
@@ -37,7 +39,7 @@ function PostData(obj) {
 }
 
 // ====={ PUT // Edit data of a given entry }=====
-function PutData(id, obj) { // <= takes an obj, will replace any properties shared between the 2 <<DOESN'T HAVE TO BE ALL PROPS>>
+export function PutData(id, obj) { // <= takes an obj, will replace any properties shared between the 2 <<DOESN'T HAVE TO BE ALL PROPS>>
     useEffect(() => {
         fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
             method: 'PUT', 
