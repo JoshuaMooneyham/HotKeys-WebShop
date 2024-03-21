@@ -6,7 +6,7 @@ function ShoppingList({item}){                          //Need to know what .som
                 <img src = {item.picture}></img>
             </div>
             <div>
-                <h3>{item.name}</h3>
+                <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <p>{item.price}</p>
             </div>
