@@ -1,16 +1,16 @@
-import { GetData, PostData } from "../crud-requests/CrudRequests";
+import { GetProducts, GetUsers } from "../crud-requests/CrudRequests";
 import { useState } from "react";
 
 
 
-export default function CreateEntry() {
+export function NewProduct() {
     const [title, setTitle] = useState(null);
     const [price, setPrice] = useState(null);
     const [desc, setDesc] = useState(null);
     const [category, setCategory] = useState(1);
     const [images, setImages] = useState(null);
 
-    let data = GetData();
+    let data = GetProducts();
 
 
     function submitHandler() {
@@ -36,7 +36,7 @@ export default function CreateEntry() {
                 <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}
                     <input type="text" name="title-entry" className="title-entry" onChange={(e) => {
                         setTitle(e.target.value);
-                    }} onBlur={(e) => console.log(e)}/>
+                    }} />
                 </label>
 
                 <label htmlFor="price-entry" className='entry-label price-entry-label'>Price:{' '}
@@ -76,4 +76,136 @@ export default function CreateEntry() {
             </form>
         </div>
     );
+}
+
+export function NewUser({ setCurUse }) {
+    const [username, setUsername] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [role, setRole] = useState('admin');
+    const [image, setImage] = useState('https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png');
+
+    let data = GetUsers();
+
+
+    function submitHandler() {
+        fetch('https://api.escuelajs.co/api/v1/users', {
+            method: 'POST', 
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                'email': email,
+                'password': password,
+                'name': username,
+                'role': role,
+                'avatar': image
+            })
+        });
+        setCurUse({
+            'email': email,
+            'password': password,
+            'name': username,
+            'role': role,
+            'avatar': image
+        })
+    }
+    console.log(data);
+
+    return( 
+        <div className='add-new-item'>
+            <form onSubmit={submitHandler} className='new-item-form'>
+                <label htmlFor="title-entry" className="entry-label title-entry-label">email:{' '}
+                    <input type="text" name="title-entry" className="title-entry" onChange={(e) => {
+                        setEmail(e.target.value);
+                    }} />
+                </label>
+
+                <label htmlFor="price-entry" className='entry-label price-entry-label'>username:{' '}
+                    <input type="text" name="price-entry" className="entry price-entry" onChange={(e) => {
+                        setUsername(e.target.value);
+                    }} />
+                </label>
+
+                <label htmlFor="desc-entry" className='entry-label desc-entry-label'>password:{' '}
+                    <input type="text" name="desc-entry" className="entry desc-entry" onChange={(e) => {
+                        setPassword(e.target.value);
+                    }} />
+                </label>
+
+                <button type="submit">Submit</button>
+
+            </form>
+        </div>
+    );
+}
+
+export function LogIn({setCurUse, curUse}) {
+    
+    let [pass, setPass] = useState('');
+    let [login, setLogin] = useState('');
+    let [validCheck, setValidCheck] = useState(true)
+    let userList = GetUsers();
+    let foundUser = null;
+
+    const findUser = () => {
+        for (let u in userList) {
+            if ((userList[u].name.toLowerCase() == login.toLowerCase() || userList[u].email.toLowerCase() == login.toLowerCase()) && userList[u].password == pass) {
+                foundUser = userList[u]
+                break
+            }
+        }
+        setValidCheck(false)
+    }
+    
+
+    return(
+        <div className='login-container'>
+            <label 
+                htmlFor="login-entry" 
+                className='entry-label login-entry-label'
+                >Username or Email:{' '}
+            </label>
+
+            <input 
+                type="text" 
+                name="login-entry" 
+                className="entry login-entry" 
+                value={login} 
+                onChange={(e) => {
+                    setLogin(e.target.value);
+                    }}
+            />
+
+            <label 
+                htmlFor="password-entry" 
+                className='entry-label password-entry-label'
+                >Password:{' '}
+            </label>    
+
+            <input 
+                type="text" 
+                name="desc-entry" 
+                className="entry desc-entry" 
+                value={pass} 
+                onChange={(e) => {
+                    setPass(e.target.value);
+                }} 
+            />
+
+            <button 
+                type="btn" 
+                onClick={() => {
+                    findUser();
+                    setCurUse(foundUser);
+                    setLogin('')
+                    setPass('')
+                }}>Submit
+            </button>
+
+            {validCheck ? '' : <span>The combination you entered is incorrect!</span>}
+            
+        </div>
+
+    )
 }

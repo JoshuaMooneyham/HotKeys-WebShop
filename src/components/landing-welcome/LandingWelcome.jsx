@@ -1,10 +1,10 @@
-import { GetData, PostData, photoFormatter, testObj } from '../crud-requests/CrudRequests.jsx';
+import { GetProducts } from '../crud-requests/CrudRequests.jsx';
 import FeaturedCard from '../featured-card/FeaturedCard.jsx';
 
 // ====={ Randomly pulls 6 unique products }=====
 function randomizedCall() {
-    
-    const results = GetData();
+
+    const results = GetProducts();
     const RANDOMLIST = [];
 
     while (results.length !== 0 && RANDOMLIST.length < 6) {

@@ -10,11 +10,15 @@ import Header from './components/header/Header';
 import TestHeader from './components/header/nates-test-header';
 
 // add routes to <Routes> and add a <Customlink> component to header to wire up additional pages
-import CreateEntry from './components/create-entry/CreateEntry';
+import { LogIn, NewProduct, NewUser } from './components/create-entry/CreateEntry';
 
 import RenderAllItems from './components/delete-entry/DeleteEntry';
+import { useState } from 'react';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  console.log(currentUser);
+
   return(
     <>
       <TestHeader />
@@ -22,10 +26,13 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingWelcome />}/>
           <Route path='/cart' element={<TestCart />}/>
-          <Route path='/user' element={<TestUser />}/>
+          {/* <Route path='/user' element={<TestUser />}/> */}
+          <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <h1>Welcome {currentUser.name}</h1>}/>
         </Routes>
-        <CreateEntry />
-        <RenderAllItems />
+        {/* <NewProduct /> */}
+        {/* <RenderAllItems /> */}
+        {/* <NewUser /> */}
+        {/* <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> */}
     </div>
     </>
   );

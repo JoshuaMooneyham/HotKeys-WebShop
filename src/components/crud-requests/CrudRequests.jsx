@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
+// ##### PRODUCT DATA #####
+
 // ====={ GET // Fetch the Data (returns the raw data) }=====
-export function GetData() {
+export function GetProducts() {
     const [products, setProducts] = useState([]);
 
     useEffect(()=> {
@@ -16,7 +18,7 @@ export function GetData() {
 }
 
 // ====={ DELETE // Removes given entry from data, returns nothing }=====
-export function DeleteData(id) {
+export function DeleteProducts(id) {
     useEffect(() => {
         fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
             method: 'DELETE'
@@ -28,7 +30,7 @@ export function DeleteData(id) {
 // to return the given entry it affected 
 
 // ====={ POST // Add a new entry to Data }=====
-export function PostData(obj) {
+export function PostProducts(obj) {
     useEffect(() => {
         fetch('https://api.escuelajs.co/api/v1/products', {
             method: 'POST', 
@@ -41,7 +43,7 @@ export function PostData(obj) {
 }
 
 // ====={ PUT // Edit data of a given entry }=====
-export function PutData(id, obj) { // <= takes an obj, will replace any properties shared between the 2 <<DOESN'T HAVE TO BE ALL PROPS>>
+export function PutProducts(id, obj) { // <= takes an obj, will replace any properties shared between the 2 <<DOESN'T HAVE TO BE ALL PROPS>>
     useEffect(() => {
         fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
             method: 'PUT', 
@@ -72,4 +74,62 @@ export function photoFormatter(photos) {
         fixedPhotos.push(newURL);
     }
     return fixedPhotos;
+}
+
+// ##### USER DATA #####
+
+export function GetUsers() {
+    const [products, setProducts] = useState([]);
+
+    useEffect(()=> {
+    fetch('https://api.escuelajs.co/api/v1/users')
+        .then(response => response.json())
+            .then(data => setProducts(data))
+    }, [])
+    // vv Parses the list of photos into actual URLs vv
+    // products.forEach(product => product.images = photoFormatter(product.images));
+
+    return products
+}
+
+export function PostUsers(obj) {
+    useEffect(() => {
+        fetch('https://api.escuelajs.co/api/v1/users', {
+            method: 'POST', 
+            headers: { // seems to be required to work
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj) // the given object is inserted and stringified here
+        })
+    }, [])
+}
+
+
+
+// Testing functions
+
+export function TestingGP() {
+    let [users, setUsers] = useState([]);
+    users = GetUsers();
+    console.log(users)
+
+    function FormatUser({user}) {
+        console.log(user);
+        return (
+            <div>
+                <h1>{user.id}</h1>
+                <h1>{user.email}</h1>
+                <h1>{user.password}</h1>
+                <h1>{user.name}</h1>
+                <h1>{user.role}</h1>
+                <img src={user.avatar} alt=":(" />
+            </div>
+        );
+    }
+
+    return (
+        <div>
+            {users.map((user) => <FormatUser user={user}/>)}
+        </div>
+    );
 }

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { GetData } from "../crud-requests/CrudRequests";
+import { GetProducts } from "../crud-requests/CrudRequests";
 
 // ====={ Renders out every current product to let you choose one to delete }=====
 export default function RenderAllItems() {
 
     let [data, setData] = useState([]);
-    data = GetData();
+    data = GetProducts();
     
     let selected = null;
 
