@@ -35,7 +35,6 @@ export function PostData(obj) {
             },
             body: JSON.stringify(obj) // the given object is inserted and stringified here
         })
-            // body: obj 
     }, [])
 }
 
