@@ -13,12 +13,26 @@ import TestHeader from './components/header/nates-test-header';
 import { LogIn, NewProduct, NewUser } from './components/create-entry/CreateEntry';
 
 import RenderAllItems from './components/delete-entry/DeleteEntry';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import MyAccount from './components/my-account/MyAccount';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   console.log(currentUser);
 
+  useEffect(() => { // pull current user from local storage
+    const data = window.localStorage.getItem('currentUser');
+    if (data !== undefined) {
+    const obj = JSON.parse(data);
+    setCurrentUser(obj);
+    }
+  }, [])
+
+  useEffect(() => { // push current user to local storage on change
+    window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    console.log('saved');
+  }, [currentUser])
+  
   return(
     <>
       <TestHeader />
@@ -27,7 +41,7 @@ function App() {
           <Route path='/' element={<LandingWelcome />}/>
           <Route path='/cart' element={<TestCart />}/>
           {/* <Route path='/user' element={<TestUser />}/> */}
-          <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <h1>Welcome {currentUser.name}</h1>}/>
+          <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
         </Routes>
         {/* <NewProduct /> */}
         {/* <RenderAllItems /> */}
