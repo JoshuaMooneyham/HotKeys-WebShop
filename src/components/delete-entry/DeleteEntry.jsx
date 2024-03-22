@@ -1,20 +1,49 @@
 import { useState } from "react";
+import { GetData } from "../crud-requests/CrudRequests";
 
-function ItemCard({item}) {
-    const [clicked, setClicked] = useState(false);
+// ====={ Renders out every current product to let you choose one to delete }=====
+export default function RenderAllItems() {
 
-    return(
-        <div className={clicked ? 'clicked removal-card' : 'removal-card'} onClick={() => {setClicked(!clicked)}} onClick={(e) => {console.log(e)
-        e.target.className = 'clicked'}}>
-            <p>{item.title}</p>
-        </div>
-    );
-}
+    let [data, setData] = useState([]);
+    data = GetData();
+    
+    let selected = null;
 
-export default function RenderAllItems({ITEMS}) {
+    // ====={ Formats each individual item card }=====
+    function ItemCard({item}) {
+    
+        return(
+            <button id={item.id} className='removal-card' 
+                onFocus={(e) => {
+                    selected = e.target.getAttribute('id');
+                    e.target.classList.add('selected');
+                }} 
+                onBlur = {(e)=> {
+                    e.target.classList.remove('selected')
+                }}>
+                <img src={item.images[0]}/>
+                {item.title}
+            </button>
+        );
+    }
+
     return (
-    <div className="removal-container" onClick={e => console.log(e)}>
-        {ITEMS.map((indiv) => <ItemCard item={indiv}/>)}
-    </div>
+        <div className="removal-wrapper">
+            <div className="removal-container">
+                {data.map((indiv) => <ItemCard item={indiv}/>)}
+            </div>
+            <button onClick={() => {
+                fetch('https://api.escuelajs.co/api/v1/products/'+ selected, {
+                    method: 'DELETE'
+                });
+                setData(data.map(element => {
+                    if (element.id == selected) {
+                        data.splice(data.indexOf(element), 1);
+                        console.log(data)
+                    }
+                }));
+            }}>Delete
+            </button> 
+        </div>
     )
 }

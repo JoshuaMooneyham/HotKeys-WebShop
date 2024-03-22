@@ -9,6 +9,8 @@ export function GetData() {
         .then(response => response.json())
             .then(data => setProducts(data))
     }, [])
+    // vv Parses the list of photos into actual URLs vv
+    products.forEach(product => product.images = photoFormatter(product.images));
 
     return products
 }
@@ -61,7 +63,7 @@ export let testObj = {
   }
 // ^^^ I'm fairly sure the keys don't have to be strings, since thats what stringify does, but this is how it was working for me just in case.
 
-// PHOTO FIXER
+// ====={ PHOTO FIXER }=====
 export function photoFormatter(photos) {
     const regex = /['\[\]"]/g; // Regular Expression - will catch any of the given characters
     const fixedPhotos = [];

@@ -1,7 +1,9 @@
-import { GetData, PostData, testObj } from '../crud-requests/CrudRequests.jsx'
-import FeaturedCard from '../featured-card/FeaturedCard.jsx'
+import { GetData, PostData, photoFormatter, testObj } from '../crud-requests/CrudRequests.jsx';
+import FeaturedCard from '../featured-card/FeaturedCard.jsx';
 
+// ====={ Randomly pulls 6 unique products }=====
 function randomizedCall() {
+    
     const results = GetData();
     const RANDOMLIST = [];
 
@@ -17,9 +19,10 @@ function randomizedCall() {
     return RANDOMLIST;
 }
 
+// ====={ displays the welcome landing page and featured items }=====
 function LandingWelcome() {
+
     let featured = randomizedCall();
-    console.log(featured);
 
     return (
         <div className='welcome-container'>

@@ -1,5 +1,7 @@
 function Header() {
+    
     return(
+
     <div className="header-container">
         <div className='header-icon-wrapper'>
             <img src='hotkey lights.png' className="header-icon" />

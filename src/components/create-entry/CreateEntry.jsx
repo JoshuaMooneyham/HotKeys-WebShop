@@ -36,7 +36,7 @@ export default function CreateEntry() {
                 <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}
                     <input type="text" name="title-entry" className="title-entry" onChange={(e) => {
                         setTitle(e.target.value);
-                    }} />
+                    }} onBlur={(e) => console.log(e)}/>
                 </label>
 
                 <label htmlFor="price-entry" className='entry-label price-entry-label'>Price:{' '}

@@ -11,11 +11,10 @@ import TestHeader from './components/header/nates-test-header';
 
 // add routes to <Routes> and add a <Customlink> component to header to wire up additional pages
 import CreateEntry from './components/create-entry/CreateEntry';
+
 import RenderAllItems from './components/delete-entry/DeleteEntry';
-import { GetData } from './components/crud-requests/CrudRequests';
 
 function App() {
-  const data = GetData();
   return(
     <>
       <TestHeader />
@@ -26,7 +25,7 @@ function App() {
           <Route path='/user' element={<TestUser />}/>
         </Routes>
         <CreateEntry />
-        <RenderAllItems ITEMS={data}/>
+        <RenderAllItems />
     </div>
     </>
   );

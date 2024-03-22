@@ -1,8 +1,7 @@
-import { photoFormatter } from "../crud-requests/CrudRequests";
+// import { photoFormatter } from "../crud-requests/CrudRequests";
 
 export default function FeaturedCard ({productListing}) {
-    productListing.images = photoFormatter(productListing.images);
-
+    // productListing.images = photoFormatter(productListing.images);
     return (
         <div className='card'>
             <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img>
