@@ -20,7 +20,6 @@ function randomizedCall() {
 function LandingWelcome() {
     let featured = randomizedCall();
     console.log(featured);
-    console.log(this.state)
 
     return (
         <div className='welcome-container'>
