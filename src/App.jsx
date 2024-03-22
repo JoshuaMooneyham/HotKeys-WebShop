@@ -10,6 +10,7 @@ import Header from './components/header/Header';
 import TestHeader from './components/header/nates-test-header';
 
 // add routes to <Routes> and add a <Customlink> component to header to wire up additional pages
+import CreateEntry from './components/create-entry/CreateEntry';
 
 function App() {
   return(
@@ -21,7 +22,8 @@ function App() {
           <Route path='/cart' element={<TestCart />}/>
           <Route path='/user' element={<TestUser />}/>
         </Routes>
-      </div>
+        <CreateEntry />
+    </div>
     </>
   );
 }
