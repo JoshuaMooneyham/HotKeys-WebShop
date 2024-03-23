@@ -82,7 +82,7 @@ export function NewUser({ setCurUse }) {
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
     const [email, setEmail] = useState(null);
-    const [role, setRole] = useState('admin');
+    const [role, setRole] = useState('customer');
     const [image, setImage] = useState('https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png');
 
     let data = GetUsers();
@@ -144,9 +144,11 @@ export function LogIn({setCurUse, curUse}) {
     
     let [pass, setPass] = useState('');
     let [login, setLogin] = useState('');
-    let [validCheck, setValidCheck] = useState(true)
+    let [validCheck, setValidCheck] = useState(true);
+    let [createOrLogin, toggleCOL] = useState(true);
     let userList = GetUsers();
     let foundUser = null;
+    console.log(userList);
 
     const findUser = () => {
         for (let u in userList) {
@@ -160,6 +162,9 @@ export function LogIn({setCurUse, curUse}) {
     
 
     return(
+        <div>
+        <h1>{createOrLogin ? 'Create an account' : 'Log In'}</h1>
+        { !createOrLogin ? 
         <div className='login-container'>
             <label 
                 htmlFor="login-entry" 
@@ -184,12 +189,13 @@ export function LogIn({setCurUse, curUse}) {
             </label>    
 
             <input 
-                type="text" 
+                type="password" 
                 name="desc-entry" 
                 className="entry desc-entry" 
                 value={pass} 
                 onChange={(e) => {
                     setPass(e.target.value);
+                    console.log(e.target.value)
                 }} 
             />
 
@@ -205,7 +211,10 @@ export function LogIn({setCurUse, curUse}) {
 
             {validCheck ? '' : <span>The combination you entered is incorrect!</span>}
             
-        </div>
-
+        </div> : <NewUser setCurUse={setCurUse}/>
+    }
+    <span>{createOrLogin ? 'Already have an account?' : "Don't have an account?"}</span>
+    <button onClick={()=> toggleCOL(!createOrLogin)}>{createOrLogin ? 'Log In' : 'Create One'}</button>
+    </div>
     )
 }

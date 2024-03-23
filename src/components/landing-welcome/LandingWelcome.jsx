@@ -1,8 +1,8 @@
-import { GetProducts } from '../crud-requests/CrudRequests.jsx';
+import { useState } from 'react';
+import { GetProducts, GetUsers } from '../crud-requests/CrudRequests.jsx';
 import FeaturedCard from '../featured-card/FeaturedCard.jsx';
-
 // ====={ Randomly pulls 6 unique products }=====
-function randomizedCall() {
+export function randomizedCall() {
 
     const results = GetProducts();
     const RANDOMLIST = [];
@@ -20,9 +20,15 @@ function randomizedCall() {
 }
 
 // ====={ displays the welcome landing page and featured items }=====
-function LandingWelcome() {
+function LandingWelcome({featured}) {
+    
+    // featured = randomizedCall();
 
-    let featured = randomizedCall();
+    let products = GetProducts();
+    let users = GetUsers();
+    console.log('featured', featured);
+    console.log('users', users);
+    console.log('products', products);
 
     return (
         <div className='welcome-container'>

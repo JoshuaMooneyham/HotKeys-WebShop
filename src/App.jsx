@@ -5,7 +5,7 @@ import TestCart from './components/nates-test-components/Cart';
 import TestUser from './components/nates-test-components/User';
 
 
-import LandingWelcome from './components/landing-welcome/LandingWelcome';
+import LandingWelcome, { randomizedCall } from './components/landing-welcome/LandingWelcome';
 import Header from './components/header/Header';
 import TestHeader from './components/header/nates-test-header';
 
@@ -18,7 +18,12 @@ import MyAccount from './components/my-account/MyAccount';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [cart, setCart] = useState([]);
+  let [featured, setFeatured] = useState([])
+
+  featured = randomizedCall();
   console.log(currentUser);
+  console.log(featured);
 
   useEffect(() => { // pull current user from local storage
     const data = window.localStorage.getItem('currentUser');
@@ -32,21 +37,23 @@ function App() {
     window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
     console.log('saved');
   }, [currentUser])
+
+  useEffect(() => { // push current cart items
+    window.localStorage.setItem('cartItems', JSON.stringify(cart));
+  }, [cart])
   
   return(
     <>
       <TestHeader />
       <div className='container'>
         <Routes>
-          <Route path='/' element={<LandingWelcome />}/>
+          <Route path='/' element={<LandingWelcome featured={featured}/>}/>
           <Route path='/cart' element={<TestCart />}/>
           {/* <Route path='/user' element={<TestUser />}/> */}
           <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
         </Routes>
         {/* <NewProduct /> */}
         {/* <RenderAllItems /> */}
-        {/* <NewUser /> */}
-        {/* <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> */}
     </div>
     </>
   );
