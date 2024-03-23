@@ -15,7 +15,7 @@ code {
 .clicked {
   background-color: brown;
 }
-
+/* nates-test-header navbar css begin */
 .nav {
   background-color: #e0fbfc;
   color: black;
@@ -60,6 +60,7 @@ code {
 .nav li:hover {
   background-color: #8dc1ba;
 }
+/* nates-test-header navbar css end */
 
 .removal-container {
   display: flex;
@@ -80,3 +81,31 @@ code {
   border: 10px rgb(0, 191, 255) solid;
   border-radius: 14px;
 }
+
+/* FeaturedCard css begin */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 35%;
+  margin: 5%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+}
+
+.featured-card-text-container {
+  padding: 2px 16px;
+}
+/* FeaturedCard css end */
+
+/* App main content container begin*/
+.container {
+  display: flex;
+  justify-content: center;
+}
+/* App main content container end */

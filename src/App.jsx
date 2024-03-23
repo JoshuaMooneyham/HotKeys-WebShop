@@ -47,7 +47,7 @@ function App() {
       <TestHeader />
       <div className='container'>
         <Routes>
-          <Route path='/' element={<LandingWelcome featured={featured}/>}/>
+          <Route path='/' element={<LandingWelcome featured={featured} shoppingCart={cart}/>}/>
           <Route path='/cart' element={<TestCart />}/>
           {/* <Route path='/user' element={<TestUser />}/> */}
           <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
