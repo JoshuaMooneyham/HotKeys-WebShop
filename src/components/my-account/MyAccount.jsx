@@ -5,7 +5,7 @@ function ViewAccount({ curUse, setCurUse, state }) {
     return(
         <div className='account-view'>
             <h1 className="account-view-greeting">Hello {curUse.name}!</h1>
-            <img src={curUse.avatar} alt="pfp" class='account-view-pfp'/>
+            <img src={curUse.avatar} alt="pfp" className='account-view-pfp'/>
 
             <button className='account-view-edit acc-btn' onClick={() => state(2)}>EDIT ACCOUNT</button>
             <button className='account-view-logout acc-btn' onClick={() => setCurUse(null)}>LOG OUT</button>
@@ -25,12 +25,12 @@ function EditAccount({curUse, state}) {
 
     const putUserData = (obj) => {
         fetch(`https://api.escuelajs.co/api/v1/users/${curUse.id}`, {
-                            method: 'PUT', 
-                            headers: {
-                                "Content-Type": "application/json"
-                            }, 
-                            body: JSON.stringify(obj)
-                        })
+            method: 'PUT', 
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify(obj)
+        })
     };
 
     return(

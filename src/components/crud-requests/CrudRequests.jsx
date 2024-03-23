@@ -7,10 +7,10 @@ export function GetProducts() {
     const [products, setProducts] = useState([]);
 
     useEffect(()=> {
-    fetch('https://api.escuelajs.co/api/v1/products')
-        .then(response => response.json())
-            .then(data => setProducts(data))
-    }, [])
+        fetch('https://api.escuelajs.co/api/v1/products')
+            .then(response => response.json())
+                .then(data => setProducts(data))
+        }, [])
     // vv Parses the list of photos into actual URLs vv
     products.forEach(product => product.images = photoFormatter(product.images));
 

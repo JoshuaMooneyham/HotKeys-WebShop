@@ -20,13 +20,10 @@ export function randomizedCall() {
 }
 
 // ====={ displays the welcome landing page and featured items }=====
-function LandingWelcome({featured, shoppingCart}) {
-    
-    // featured = randomizedCall();
+function LandingWelcome({featured, shoppingCart, addToCart}) {
 
     let products = GetProducts();
     let users = GetUsers();
-    console.log('featured', featured);
     console.log('users', users);
     console.log('products', products);
 
@@ -35,7 +32,7 @@ function LandingWelcome({featured, shoppingCart}) {
             <img src='welcome banner.png' className='welcome-banner'/>
                 <div className='featured'>
                     <h2 className='featured-title'>FEATURED</h2>
-                    {featured.length > 0 ? featured.map(indiv => <FeaturedCard key={featured.indexOf(indiv)} productListing={indiv} shoppingCart={shoppingCart}/>) : 'Loading..'}
+                    {featured.length > 0 ? featured.map(indiv => <FeaturedCard key={featured.indexOf(indiv)} productListing={indiv} shoppingCart={shoppingCart} addToCart={addToCart}/>) : 'Loading..'}
                 </div>
         </div>
     );
