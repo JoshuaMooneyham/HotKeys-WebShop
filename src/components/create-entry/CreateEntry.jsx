@@ -113,22 +113,22 @@ export function NewUser({ setCurUse }) {
     console.log(data);
 
     return( 
-        <div className='add-new-item'>
-            <form onSubmit={submitHandler} className='new-item-form'>
-                <label htmlFor="title-entry" className="entry-label title-entry-label">email:{' '}
-                    <input type="text" name="title-entry" className="title-entry" onChange={(e) => {
+        <div className='add-new-user'>
+            <form onSubmit={submitHandler} className='new-user-form'>
+                <label htmlFor="email-entry" className="entry-label email-entry-label">email:{' '}
+                    <input type="text" name="email-entry" className="email-entry" onChange={(e) => {
                         setEmail(e.target.value);
                     }} />
                 </label>
 
-                <label htmlFor="price-entry" className='entry-label price-entry-label'>username:{' '}
-                    <input type="text" name="price-entry" className="entry price-entry" onChange={(e) => {
+                <label htmlFor="username-entry" className='entry-label username-entry-label'>username:{' '}
+                    <input type="text" name="username-entry" className="entry username-entry" onChange={(e) => {
                         setUsername(e.target.value);
                     }} />
                 </label>
 
-                <label htmlFor="desc-entry" className='entry-label desc-entry-label'>password:{' '}
-                    <input type="text" name="desc-entry" className="entry desc-entry" onChange={(e) => {
+                <label htmlFor="password-entry" className='entry-label password-entry-label'>password:{' '}
+                    <input type="text" name="password-entry" className="entry password-entry" onChange={(e) => {
                         setPassword(e.target.value);
                     }} />
                 </label>

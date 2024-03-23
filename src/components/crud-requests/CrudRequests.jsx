@@ -71,7 +71,7 @@ export function photoFormatter(photos) {
     const fixedPhotos = [];
     for (let element in photos) {
         let newURL = photos[element].replace(regex, '');
-        newURL = newURL.includes('placeimg.com') ? 'https://tse1.mm.bing.net/th?id=OIP.Ld8VBdLqj6mJRHT1lCAWQQHaH_&pid=Api&P=0&h=220' : newURL;
+        // newURL = newURL.includes('placeimg.com') ? 'https://tse1.mm.bing.net/th?id=OIP.Ld8VBdLqj6mJRHT1lCAWQQHaH_&pid=Api&P=0&h=220' : newURL;
         fixedPhotos.push(newURL);
     }
     return fixedPhotos;
