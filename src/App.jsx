@@ -44,17 +44,19 @@ function App() {
   
   return(
     <>
-      <TestHeader />
-      <div className='container'>
-        <Routes>
-          <Route path='/' element={<LandingWelcome featured={featured}/>}/>
-          <Route path='/cart' element={<TestCart />}/>
-          {/* <Route path='/user' element={<TestUser />}/> */}
-          <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
-        </Routes>
-        {/* <NewProduct /> */}
-        {/* <RenderAllItems /> */}
-    </div>
+      <div className='overall-app-container'>
+        <TestHeader />
+        <div className='container'>
+          <Routes>
+            <Route path='/' element={<LandingWelcome featured={featured}/>}/>
+            <Route path='/cart' element={<TestCart />}/>
+            {/* <Route path='/user' element={<TestUser />}/> */}
+            <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
+          </Routes>
+          {/* <NewProduct /> */}
+          {/* <RenderAllItems /> */}
+        </div>
+      </div>
     </>
   );
 }

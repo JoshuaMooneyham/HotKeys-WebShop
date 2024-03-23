@@ -3,12 +3,12 @@ import { useState } from "react"
 function ViewAccount({ curUse, setCurUse, state }) {
 
     return(
-        <div>
-            <h1>Welcome {curUse.name}!</h1>
-            <img src={curUse.avatar} alt="pfp" />
+        <div className='account-view'>
+            <h1 className="account-view-greeting">Hello {curUse.name}!</h1>
+            <img src={curUse.avatar} alt="pfp" class='account-view-pfp'/>
 
-            <button onClick={() => state(2)}>EDIT ACCOUNT</button>
-            <button onClick={() => setCurUse(null)}>LOG OUT</button>
+            <button className='account-view-edit acc-btn' onClick={() => state(2)}>EDIT ACCOUNT</button>
+            <button className='account-view-logout acc-btn' onClick={() => setCurUse(null)}>LOG OUT</button>
         </div>
     );
 }
@@ -106,7 +106,7 @@ function EditAccount({curUse, state}) {
 export default function MyAccount({ curUse, setCurUse }) {
     const [state, setState] = useState(1)
     return(
-        <div>
+        <div className="account-wrapper">
             { state == 1 ? 
             <ViewAccount curUse={curUse} setCurUse={setCurUse} state={setState}/> 
             : state == 2 ? 

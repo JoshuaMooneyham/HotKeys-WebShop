@@ -1,3 +1,9 @@
+*{
+  /* outline: red dashed 1px; */
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,6 +22,18 @@ code {
   background-color: brown;
 }
 
+.overall-app-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  height: 85%;
+  width: inherit;
+  background-color: #293241;
+}
+
+/* ====={ Header styling }===== */
 .nav {
   background-color: #e0fbfc;
   color: black;
@@ -24,6 +42,7 @@ code {
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
+  height: 15%;
 }
 
 .nav a {
@@ -61,6 +80,7 @@ code {
   background-color: #8dc1ba;
 }
 
+/* Remove Item Form styling */
 .removal-container {
   display: flex;
   flex-wrap: wrap;
@@ -79,4 +99,47 @@ code {
 .selected {
   border: 10px rgb(0, 191, 255) solid;
   border-radius: 14px;
+}
+
+/* Account Visualization styling */
+
+.account-view {
+  /* outline: 1px red dashed; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+  overflow: hidden;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #293241;
+  /* background-color: #3D5A80; */
+}
+
+.account-view-pfp {
+  height: 400px;
+  width: 400px;
+  border-radius: 100%;
+  background-color: #00000038;
+}
+
+.account-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.account-view-greeting {
+  font-size: 3.5em;
+  color: #EE6C3D;
+}
+
+.acc-btn {
+  height: 75px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  background-color: #EE6C3D;
 }
