@@ -44,6 +44,19 @@ function App() {
   
   return(
     <>
+<<<<<<< HEAD
+      <TestHeader />
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={<LandingWelcome featured={featured} shoppingCart={cart}/>}/>
+          <Route path='/cart' element={<TestCart />}/>
+          {/* <Route path='/user' element={<TestUser />}/> */}
+          <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
+        </Routes>
+        {/* <NewProduct /> */}
+        {/* <RenderAllItems /> */}
+    </div>
+=======
       <div className='overall-app-container'>
         <TestHeader />
         <div className='container'>
@@ -57,6 +70,7 @@ function App() {
           {/* <RenderAllItems /> */}
         </div>
       </div>
+>>>>>>> 49dbf11eabc4f47dbeb095bd02f759c1a57dcb32
     </>
   );
 }
