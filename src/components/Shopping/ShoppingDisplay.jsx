@@ -3,7 +3,7 @@ import { useState } from "react";
 import FeaturedCard from '../featured-card/FeaturedCard.jsx';
 import SearchBar from "../searchbar/SearchBar.jsx";
 
-// import {FaSearch} from "react-icons/fa";
+
 
 function ShoppingList({inputFromSearch, cart, setCart}){
     console.log('IFS', inputFromSearch)
@@ -17,25 +17,29 @@ function ShoppingList({inputFromSearch, cart, setCart}){
         list[object].toString().toLowerCase().includes(inputFromSearch)))
     }
     return(
-    shoppingItems.length > 0 && search(shoppingItems).map((items) => {
-        console.log(items);
-           return (
-            <div>
-                <FeaturedCard productListing = {items} shoppingCart = {cart} addToCart = {setCart}/>
-            </div>
-           )
-        } )
-        
-    )
+    
+    shoppingItems.length > 0 && <div className="allProducts">{search(shoppingItems).map((items) => {    
+        <FeaturedCard productListing = {items} shoppingCart = {cart} addToCart = {setCart}/>
+        })}</div>
+     )
+    
 }
 
+
+
 export default function HappyShopping ({cart, setCart}){
+    let [allProducts, setData] = useState([])
+    allProducts = GetProducts();
     const [barInput, setBarInput] = useState('');
     console.log('bar input', barInput);
     return(
         <div className="shopping-container">
+            <div className="search">
             <SearchBar setInput={setBarInput}/>
-            {barInput != '' && <ShoppingList inputFromSearch={barInput} cart={cart} setCart={setCart}/>}
+            </div>
+            <ul className="shop-store">
+            {barInput != '' ? <ShoppingList inputFromSearch={barInput} cart={cart} setCart={setCart}/> : <div className="allProducts">{allProducts.map((item)=> <FeaturedCard productListing={item} shoppingCart={cart} addToCart={setCart}/> )}</div>}
+            </ul>
         </div>
     )
 }

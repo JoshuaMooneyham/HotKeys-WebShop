@@ -122,7 +122,7 @@ code {
   align-self: center;
   display: flex;
   overflow-x: scroll;
-  max-width: 1200px;
+  max-width: 1400px;
   background-color: rgba(0, 0, 0, 0.219);
   border-radius: 10px;
 }
@@ -134,14 +134,39 @@ code {
   align-self: center;
 }
 
+.featured-card-text{
+  color: #293241;
+  
+}
+
+.featured-card-container{
+  
+  border-radius: 10px;
+  background-color: #cae9e4;
+  align-content: center;
+  text-align: center;
+  
+}
+
+.featured-product-img{
+  border-radius: 10px;
+  width: 145px;
+  height: 200px;
+  border: 5px solid #293241;
+  
+}
+
 .welcome-banner {
+  margin-top: 2.5rem;
   align-self: center;
   border-radius: 10px;
+  width: 1000px;
+  height: 500px;
 }
 
 /* App main content container begin*/
 .container {
-  display: flex;
+  display: flex; 
   justify-content: center;
 }
 /* App main content container end */
@@ -332,10 +357,10 @@ code {
 
 /* Search Bar Styling */
 .searchBarContainer {
-  margin: auto;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   min-width: 200px;
 
 }
@@ -344,14 +369,42 @@ code {
   background-color: white;
   width: 100%;
   border-radius: 10px;
-  height: 2.5rem;
+  height: 3.5rem;
   padding: 0 15px;
-  box-shadow: 0px 0px 8px #ddd;
+  /* box-shadow: 0px 0px 8px #ddd; */
   display:flex;
   align-items: center;
 } 
+.input-wrapper input {
+ padding-left: 10px;
+ height: 50px;
+ width: 600px; 
+ border: hidden;
+ font-size: 25px
+}
 
 #search-icon {
   color: blue;
+  
 }
 
+/* Shop All styling */
+
+.shopping-container{
+  height: 100%;
+  overflow: hidden;
+}
+.shop-store{
+  display:flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  justify-content: center;
+  height: 400px;
+  width: 900px;
+  padding-top:0;
+  overflow-x: scroll;
+  max-width: 1400px;
+
+  
+
+}
