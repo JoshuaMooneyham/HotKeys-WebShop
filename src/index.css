@@ -168,6 +168,87 @@ code {
 }
 
 /* ====={ Account Creation Styling }===== */
+/* .add-new-user {
+  height: 100%;
+}*/
+
+.new-user-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
+  height: 100%;
+  /* flex-direction: column; */
+} 
+
+.bs-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.login-header {
+  color: #EE6C3D;
+  font-size: 3em;
+}
+
+.entry {
+  font-size: 1.7em;
+  width: 600px;
+  height: 40px;
+  margin: 10px;
+  background-color: #0000005d;
+  border: none;
+  border-radius: 6px;
+  color: #e0fbfc;
+  padding: 10px;
+}
+
+.entry:focus {
+  background-color: #98d1c9;
+  border: none;
+}
+
+.entry-label {
+  color: #EE6C3D;
+  font-size: 1.7em;
+  margin: 10px;
+}
+
+.create-user-btn {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  width: 20%;
+  height: 70px;
+  margin-top: 25px;
+  justify-self: center;
+  background-color: #EE6C3D;
+  border: none;
+  border-radius: 5px;
+}
+
+.create-user-btn:hover {
+  cursor: pointer;
+  transition: .3s;
+  background-color: orange;
+}
+
+.stat-span {
+  color: #98d1c9;
+}
+
+.link-span {
+  color: #e0fbfc;
+}
+
+.link-span:hover {
+  cursor: pointer;
+  color: #98d1c9;
+  transition: .3s;
+}
+
+
 /* .email-entry {
 
 }
@@ -189,5 +270,5 @@ code {
 }
 
 .password-entry-label {
-  
-} */
+   */
+/* } */

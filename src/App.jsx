@@ -60,7 +60,7 @@ function App({featured}) {
         <div className='container'>
           <Routes>
             <Route path='/' element={<LandingWelcome featured={featured} shoppingCart={cart} addToCart={setCart}/>}/>
-            <Route path='/cart' element={<TestCart cart={cart}/>}/>
+            <Route path='/cart' element={<TestCart cart={cart} setCart={setCart}/>}/>
             {/* <Route path='/user' element={<TestUser />}/> */}
             <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
           </Routes>

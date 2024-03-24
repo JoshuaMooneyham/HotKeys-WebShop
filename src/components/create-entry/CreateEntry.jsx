@@ -115,25 +115,30 @@ export function NewUser({ setCurUse }) {
     return( 
         <div className='add-new-user'>
             <form onSubmit={submitHandler} className='new-user-form'>
+
                 <label htmlFor="email-entry" className="entry-label email-entry-label">email:{' '}
-                    <input type="text" name="email-entry" className="email-entry" onChange={(e) => {
-                        setEmail(e.target.value);
-                    }} />
                 </label>
+                <input type="text" name="email-entry" className="entry email-entry" onChange={(e) => {
+                    setEmail(e.target.value);
+                }} />
 
                 <label htmlFor="username-entry" className='entry-label username-entry-label'>username:{' '}
-                    <input type="text" name="username-entry" className="entry username-entry" onChange={(e) => {
-                        setUsername(e.target.value);
-                    }} />
                 </label>
+                <input type="text" name="username-entry" className="entry username-entry" onChange={(e) => {
+                    setUsername(e.target.value);
+                }} />
 
                 <label htmlFor="password-entry" className='entry-label password-entry-label'>password:{' '}
-                    <input type="text" name="password-entry" className="entry password-entry" onChange={(e) => {
-                        setPassword(e.target.value);
-                    }} />
                 </label>
+                <input type="text" name="password-entry" className="entry password-entry" onChange={(e) => {
+                    setPassword(e.target.value);
+                }} />
+                <label htmlFor="admin-check">Admin?</label>
+                <input type="checkbox" name='admin-check' onClick={() => {
+                    role === 'customer' ? setRole('admin') : setRole('customer');
+                }}/>
 
-                <button type="submit">Submit</button>
+                <button className='create-user-btn' type="submit">Submit</button>
 
             </form>
         </div>
@@ -162,8 +167,8 @@ export function LogIn({setCurUse, curUse}) {
     
 
     return(
-        <div>
-        <h1>{createOrLogin ? 'Create an account' : 'Log In'}</h1>
+        <div className="bs-container">
+        <h1 className="login-header">{createOrLogin ? 'Create an account' : 'Log In'}</h1>
         { !createOrLogin ? 
         <div className='login-container'>
             <label 
@@ -213,8 +218,10 @@ export function LogIn({setCurUse, curUse}) {
             
         </div> : <NewUser setCurUse={setCurUse}/>
     }
-    <span>{createOrLogin ? 'Already have an account?' : "Don't have an account?"}</span>
-    <button onClick={()=> toggleCOL(!createOrLogin)}>{createOrLogin ? 'Log In' : 'Create One'}</button>
+        <div className="login-spans">
+            <span className="stat-span">{createOrLogin ? 'Already have an account? ' : "Don't have an account? "}</span>
+            <span className='link-span' onClick={()=> toggleCOL(!createOrLogin)}>{createOrLogin ? 'Log In' : 'Create One'}</span>
+        </div>
     </div>
     )
 }

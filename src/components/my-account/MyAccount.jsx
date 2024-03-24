@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { NewProduct } from "../create-entry/CreateEntry";
+import RenderAllItems from "../delete-entry/DeleteEntry";
 
 function ViewAccount({ curUse, setCurUse, state }) {
 
@@ -7,6 +9,8 @@ function ViewAccount({ curUse, setCurUse, state }) {
             <h1 className="account-view-greeting">Hello {curUse.name}!</h1>
             <img src={curUse.avatar} alt="pfp" className='account-view-pfp'/>
 
+            <button onClick={()=> state(3)}>SELL AN ITEM</button>
+            {curUse.role == 'admin' && <button onClick={() => state(4)}>REMOVE PRODUCTS</button>}
             <button className='account-view-edit acc-btn' onClick={() => state(2)}>EDIT ACCOUNT</button>
             <button className='account-view-logout acc-btn' onClick={() => setCurUse(null)}>LOG OUT</button>
         </div>
@@ -111,7 +115,9 @@ export default function MyAccount({ curUse, setCurUse }) {
             <ViewAccount curUse={curUse} setCurUse={setCurUse} state={setState}/> 
             : state == 2 ? 
             <EditAccount curUse={curUse} state={setState}/>
-            : ''}
+            : state == 3 ? 
+            <NewProduct />
+            : <RenderAllItems />}
         </div>
     );
 }
