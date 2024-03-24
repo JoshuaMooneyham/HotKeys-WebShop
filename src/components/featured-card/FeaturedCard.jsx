@@ -2,18 +2,20 @@
 
 
 
-export default function FeaturedCard ({productListing, shoppingCart}) {
+export default function FeaturedCard ({productListing, shoppingCart, addToCart }) {
     // productListing.images = photoFormatter(productListing.images);
     
     // on click, we want to grab the id of the item in the card
 
-    const getProductListingId = () => {
-        console.log(productListing.id)
-        let cart = window.localStorage.getItem('cartItems')
-        console.log(cart)
+    // const getProductListingId = () => {
+        // console.log(productListing)
+        // let cart = window.localStorage.getItem('cartItems')
+        // console.log(cart)
 
-        window.localStorage.setItem('cartItems', [...cart, productListing])
-    }
+        // addToCart([...shoppingCart, productListing])
+
+    //     window.localStorage.setItem('cartItems', [...cart, productListing])
+    // }
     
     
     
@@ -26,7 +28,7 @@ export default function FeaturedCard ({productListing, shoppingCart}) {
                     <p>in {productListing.category.name}</p>
                     <h3>${productListing.price}</h3>
                 </div>
-                <button className="featured-card-button" onClick={getProductListingId}>{shoppingCart.includes(productListing) ? 'Added!' : 'Add to Cart'}</button>
+                <button className="featured-card-button" onClick={() => addToCart([...shoppingCart, productListing])}>{shoppingCart.includes(productListing) ? 'Added!' : 'Add to Cart'}</button>
             </div>
         </div>
     );

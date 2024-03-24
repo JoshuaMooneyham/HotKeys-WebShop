@@ -29,9 +29,16 @@ code {
 }
 
 .container {
-  height: 85%;
-  width: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: #293241;
+  height: 85%;
+}
+
+.overall-app-container{
+  height: 100vh;
 }
 
 /* ====={ Header styling }===== */
@@ -80,7 +87,6 @@ code {
 .nav li:hover {
   background-color: #8dc1ba;
 }
-/* nates-test-header navbar css end */
 
 /* Remove Item Form styling */
 .removal-container {
@@ -172,6 +178,52 @@ code {
   border: none;
   background-color: #EE6C3D;
 }
+
+/* Featured Card start */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 35%;
+  margin: 5%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+}
+
+.featured-card-text-container {
+  padding: 2px 16px;
+}
+
+/* ====={ Account Creation Styling }===== */
+/* .email-entry {
+
+}
+
+.email-entry-label {
+
+}
+
+.username-entry {
+
+}
+
+.username-entry-label {
+
+}
+
+.password-entry {
+
+}
+
+.password-entry-label {
+  
+} */
 
 /* Search Bar Styling */
 .searchBarContainer {
