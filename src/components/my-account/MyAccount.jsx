@@ -40,28 +40,40 @@ function EditAccount({curUse, state}) {
     };
 
     return(
-        <div>
-            <img src={curUse.avatar} alt="pfp" style={{height: '500px'}}/>
+        <div className="edit-user-container">
+            <img className='edit-user-pfp-image' src={curUse.avatar} alt="pfp"/>
 
             {updateImageUrl ? 
-                <div>
-                    <input type="text" onChange={e => setImageUrl(e.target.value)}/>
-                    <button onClick={() => {
-                        curUse.avatar = imageUrl;
-                        window.localStorage.setItem('currentUser', JSON.stringify(curUse))
-                        putUserData({'avatar': imageUrl})
-                        toggleImageUrl(!updateImageUrl);
+                <div className="cancel-div">
+                    <input 
+                        className="update-input"
+                        placeholder='Enter Image URL' 
+                        type="url" 
+                        onChange={e => setImageUrl(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                curUse.avatar = imageUrl
+                                window.localStorage.setItem('currentUser', JSON.stringify(curUse))
+                                putUserData({'avatar': imageUrl})
+                                toggleImageUrl(!updateImageUrl)
+                            }
+                        }}/>
+                           
+                    <span className='cancel-span' onClick={() => {
+                        toggleImageUrl(!updateImageUrl)
                     }}>
-                        APPLY
-                    </button>
+                        Cancel
+                    </span>
                 </div> : 
-            <button onClick={() => toggleImageUrl(!updateImageUrl)}>CHANGE PHOTO</button>}
+            <p onClick={() => toggleImageUrl(!updateImageUrl)}>Change Profile Image</p>}
             
-            <h1>{curUse.name}</h1>
+            <h1>{`Username: ${curUse.name}`}</h1>
             
             {updateUsername ? 
-                <div>
-                    <input type="text" onChange={e => setUsername(e.target.value)}/>
+                <div className="cancel-div">
+                    <input type="text" 
+                        placeholder={curUse.name}
+                        onChange={e => setUsername(e.target.value)}/>
                     <button onClick={() => {
                         curUse.name = username;
                         window.localStorage.setItem('currentUser', JSON.stringify(curUse))

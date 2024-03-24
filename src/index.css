@@ -219,8 +219,8 @@ code {
 }
 
 .account-view-pfp {
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   border-radius: 100%;
   background-color: #00000038;
 }
@@ -239,12 +239,18 @@ code {
 }
 
 .acc-btn {
-  height: 80px;
+  height: 70px;
   width: 200px;
   border-radius: 5px;
   border: none;
   background-color: #EE6C3D;
   color: #e0fbfc;
+}
+
+.acc-btn:hover {
+  cursor: pointer;
+  background-color: orange;
+  transition: 0.3s;
 }
 
 .admin-btn-container {
@@ -285,17 +291,17 @@ code {
 }
 
 /* ====={ Account Creation Styling }===== */
-/* .add-new-user {
-  height: 100%;
-}*/
 
-.new-user-form {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 2fr;
-  height: 100%;
-  /* flex-direction: column; */
-} 
+.new-user-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.create-account-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
 .bs-container {
   height: 100%;
@@ -313,8 +319,7 @@ code {
 .entry {
   font-size: 1.7em;
   width: 600px;
-  height: 40px;
-  margin: 10px;
+  height: 35px;
   background-color: #0000005d;
   border: none;
   border-radius: 6px;
@@ -322,7 +327,13 @@ code {
   padding: 10px;
 }
 
+.entry:hover {
+  transition: 0.1s;
+  opacity: 50%;
+}
+
 .entry:focus {
+  opacity: 100%;
   background-color: #98d1c9;
   border: none;
 }
@@ -330,19 +341,34 @@ code {
 .entry-label {
   color: #EE6C3D;
   font-size: 1.7em;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
+}
+
+.admin-check-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 15px;
+}
+
+.admin-check{
+  scale: 2;
+}
+
+.ac-label {
+  margin-left: 15px;
+  color: #e0fbfc;
 }
 
 .create-user-btn {
-  grid-column-start: 1;
-  grid-column-end: span 2;
-  width: 20%;
-  height: 70px;
-  margin-top: 25px;
-  justify-self: center;
+  width: 150px;
+  height: 60px;
+  /* margin-top: 25px; */
   background-color: #EE6C3D;
   border: none;
   border-radius: 5px;
+  align-self: center;
 }
 
 .create-user-btn:hover {
@@ -365,30 +391,40 @@ code {
   transition: .3s;
 }
 
+/* ====={ Login (everything else shared classes with above) }===== */
 
-/* .email-entry {
-
+.login-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.email-entry-label {
-
+.login-container .create-user-btn {
+  margin-top: 30px;
 }
 
-.username-entry {
-
+.valid-span {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  color: red;
 }
 
-.username-entry-label {
+/* ====={ Account Edit View }===== */
 
+.edit-user-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.password-entry {
-
+.edit-user-container img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
-
-.password-entry-label {
-  
-} */
 
 /* Search Bar Styling */
 .searchBarContainer {
