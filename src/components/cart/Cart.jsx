@@ -4,8 +4,8 @@ function CartItem({item, cart, setCart}) {
     const [test, toggleTest] = useState(false);
     console.log(cart)
     return(
-        <div>
-            <form onSubmit={() => {
+        <div className="cart-container">
+            <form claassName= "cart-card"onSubmit={() => {
                 console.log(cart, cart.indexOf(item));
                 if (cart.indexOf(item) !== -1) { 
                     cart.splice(cart.indexOf(item), 1);
@@ -26,7 +26,7 @@ export default function TestCart ({cart, setCart}) {
 console.log(cart);
 
     return (
-        <div>
+        <div className= "header-container">
             <h1>CART</h1>
             {cart.map((item) => <CartItem item={item} cart={cart} setCart={setCart}/>)}
         </div>

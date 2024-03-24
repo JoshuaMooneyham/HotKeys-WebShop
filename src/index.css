@@ -450,12 +450,12 @@ code {
  display:flex;
  padding-left: 10px;
  height: 50px;
- width: 400px; 
+ width: 1000px; 
  border: hidden;
+ outline:none;
  font-size: 25px;
  
 }
-
 .search{
   padding-top: 20px;
   padding-bottom: 20px;
@@ -492,3 +492,10 @@ code {
   
 }
 
+.header-container{
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  min-width: 200px;
+}
