@@ -20,6 +20,7 @@ export default function FeaturedCard ({productListing, shoppingCart, addToCart }
     
     
     return (
+    
         <div className='card'>
             <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img>
             <div className="featured-card-container">
