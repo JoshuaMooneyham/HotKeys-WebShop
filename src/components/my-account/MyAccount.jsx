@@ -9,10 +9,16 @@ function ViewAccount({ curUse, setCurUse, state }) {
             <h1 className="account-view-greeting">Hello {curUse.name}!</h1>
             <img src={curUse.avatar} alt="pfp" className='account-view-pfp'/>
 
-            <button onClick={()=> state(3)}>SELL AN ITEM</button>
+            {/* <button onClick={()=> state(3)}>SELL AN ITEM</button>
             {curUse.role == 'admin' && <button onClick={() => state(4)}>REMOVE PRODUCTS</button>}
             <button className='account-view-edit acc-btn' onClick={() => state(2)}>EDIT ACCOUNT</button>
-            <button className='account-view-logout acc-btn' onClick={() => setCurUse(null)}>LOG OUT</button>
+            <button className='account-view-logout acc-btn' onClick={() => setCurUse(null)}>LOG OUT</button> */}
+            <div className={`account-btn-container ${curUse.role == 'admin' ? 'admin-btn-container' : 'customer-btn-container'}`}>
+                <button className='account-view-sell acc-btn' onClick={()=> state(3)}>SELL AN ITEM</button>
+                {curUse.role == 'admin' && <button className='account-view-remove acc-btn' onClick={() => state(4)}>REMOVE PRODUCTS</button>}
+                <button className='account-view-edit acc-btn' onClick={() => state(2)}>EDIT ACCOUNT</button>
+                <button className='account-view-logout acc-btn' onClick={() => setCurUse(null)}>LOG OUT</button>
+            </div>
         </div>
     );
 }

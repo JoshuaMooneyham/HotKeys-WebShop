@@ -139,7 +139,6 @@ code {
 /* Account Visualization styling */
 
 .account-view {
-  /* outline: 1px red dashed; */
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -148,7 +147,6 @@ code {
   justify-content: space-evenly;
   align-items: center;
   background-color: #293241;
-  /* background-color: #3D5A80; */
 }
 
 .account-view-pfp {
@@ -172,12 +170,28 @@ code {
 }
 
 .acc-btn {
-  height: 75px;
-  width: 150px;
+  height: 80px;
+  width: 200px;
   border-radius: 5px;
   border: none;
   background-color: #EE6C3D;
+  color: #e0fbfc;
 }
+
+.admin-btn-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.customer-btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 30px;
+}
+
 
 /* Featured Card start */
 

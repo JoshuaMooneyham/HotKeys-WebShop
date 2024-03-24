@@ -1,25 +1,15 @@
+// // add routes to <Routes> and add a <Customlink> component to header to wire up additional pages
 import { Route, Routes } from 'react-router-dom';
-
-// test components please ignore //
-import TestCart from './components/nates-test-components/Cart';
-import TestUser from './components/nates-test-components/User';
-
-
-import LandingWelcome, { randomizedCall } from './components/landing-welcome/LandingWelcome';
-import Header from './components/header/Header';
-import TestHeader from './components/header/nates-test-header';
-
-// add routes to <Routes> and add a <Customlink> component to header to wire up additional pages
-import { LogIn, NewProduct, NewUser } from './components/create-entry/CreateEntry';
-
-import RenderAllItems from './components/delete-entry/DeleteEntry';
 import { useState, useEffect } from 'react';
+import { randomizedCall } from './components/landing-welcome/LandingWelcome'
+import TestCart from './components/cart/Cart';
+import LandingWelcome from './components/landing-welcome/LandingWelcome';
+import TestHeader from './components/header/nates-test-header';
+import { LogIn } from './components/create-entry/CreateEntry';
 import MyAccount from './components/my-account/MyAccount';
-import { GetProducts } from './components/crud-requests/CrudRequests';
-import { SearchBar } from './components/Shopping/ShoppingDisplay';
+import HappyShopping from './components/Shopping/ShoppingDisplay';
 
 function App({featured}) {
-  // let [featured, setFeatured] = useState([])
   const [currentUser, setCurrentUser] = useState(null);
   const [cart, setCart] = useState([]);
 
@@ -53,7 +43,7 @@ function App({featured}) {
     window.localStorage.setItem('cartItems', JSON.stringify(cart));
   }, [cart])
 
-  //change//
+//   //change//
   return(
     <>
       <div className='overall-app-container'>
@@ -61,12 +51,10 @@ function App({featured}) {
         <div className='container'>
           <Routes>
             <Route path='/' element={<LandingWelcome featured={featured} shoppingCart={cart} addToCart={setCart}/>}/>
+            <Route path='/shopping' element={<HappyShopping cart={cart} setCart={setCart}/>}/>
             <Route path='/cart' element={<TestCart cart={cart} setCart={setCart}/>}/>
-            {/* <Route path='/user' element={<TestUser />}/> */}
             <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
           </Routes>
-          {/* <NewProduct /> */}
-          {/* <RenderAllItems /> */}
         </div>
       </div>
     </>
@@ -76,12 +64,13 @@ function App({featured}) {
 function App2() {
   let [featured, setFeatured] = useState([]);
   featured = randomizedCall();
+  console.log('test');
 
   return(
     <div className="lol">
       {featured.length > 0 && <App featured={featured}/>}
     </div>
-  )
+  );
 
 }
 
