@@ -116,27 +116,31 @@ export function NewUser({ setCurUse }) {
         <div className='add-new-user'>
             <form onSubmit={submitHandler} className='new-user-form'>
 
-                <label htmlFor="email-entry" className="entry-label email-entry-label">email:{' '}
-                </label>
-                <input type="text" name="email-entry" className="entry email-entry" onChange={(e) => {
-                    setEmail(e.target.value);
-                }} />
+                <div className="create-account-inputs">
+                    <label htmlFor="email-entry" className="entry-label email-entry-label">email:{' '}
+                    </label>
+                    <input type="text" name="email-entry" className="entry email-entry" onChange={(e) => {
+                        setEmail(e.target.value);
+                    }} />
 
-                <label htmlFor="username-entry" className='entry-label username-entry-label'>username:{' '}
-                </label>
-                <input type="text" name="username-entry" className="entry username-entry" onChange={(e) => {
-                    setUsername(e.target.value);
-                }} />
+                    <label htmlFor="username-entry" className='entry-label username-entry-label'>username:{' '}
+                    </label>
+                    <input type="text" name="username-entry" className="entry username-entry" onChange={(e) => {
+                        setUsername(e.target.value);
+                    }} />
 
-                <label htmlFor="password-entry" className='entry-label password-entry-label'>password:{' '}
-                </label>
-                <input type="text" name="password-entry" className="entry password-entry" onChange={(e) => {
-                    setPassword(e.target.value);
-                }} />
-                <label htmlFor="admin-check">Admin?</label>
-                <input type="checkbox" name='admin-check' onClick={() => {
-                    role === 'customer' ? setRole('admin') : setRole('customer');
-                }}/>
+                    <label htmlFor="password-entry" className='entry-label password-entry-label'>password:{' '}
+                    </label>
+                    <input type="text" name="password-entry" className="entry password-entry" onChange={(e) => {
+                        setPassword(e.target.value);
+                    }} />
+                </div>
+                <div className="admin-check-wrapper">
+                    <label htmlFor="admin-check" className="ac-label">Admin?</label>
+                    <input className='admin-check' type="checkbox" name='admin-check' onClick={() => {
+                        role === 'customer' ? setRole('admin') : setRole('customer');
+                    }}/>
+                </div>
 
                 <button className='create-user-btn' type="submit">Submit</button>
 
@@ -168,60 +172,63 @@ export function LogIn({setCurUse, curUse}) {
 
     return(
         <div className="bs-container">
-        <h1 className="login-header">{createOrLogin ? 'Create an account' : 'Log In'}</h1>
-        { !createOrLogin ? 
-        <div className='login-container'>
-            <label 
-                htmlFor="login-entry" 
-                className='entry-label login-entry-label'
-                >Username or Email:{' '}
-            </label>
+            <h1 className="login-header">{createOrLogin ? 'Create an account' : 'Log In'}</h1>
+            { !createOrLogin ? 
+            <div className='login-container'>
 
-            <input 
-                type="text" 
-                name="login-entry" 
-                className="entry login-entry" 
-                value={login} 
-                onChange={(e) => {
-                    setLogin(e.target.value);
-                    }}
-            />
+                <div className="create-account-inputs">
+                    <label 
+                        htmlFor="login-entry" 
+                        className='entry-label login-entry-label'
+                        >Username or Email:{' '}
+                    </label>
 
-            <label 
-                htmlFor="password-entry" 
-                className='entry-label password-entry-label'
-                >Password:{' '}
-            </label>    
+                    <input 
+                        type="text" 
+                        name="login-entry" 
+                        className="entry login-entry" 
+                        value={login} 
+                        onChange={(e) => {
+                            setLogin(e.target.value);
+                            }}
+                    />
 
-            <input 
-                type="password" 
-                name="desc-entry" 
-                className="entry desc-entry" 
-                value={pass} 
-                onChange={(e) => {
-                    setPass(e.target.value);
-                    console.log(e.target.value)
-                }} 
-            />
+                    <label 
+                        htmlFor="password-entry" 
+                        className='entry-label password-entry-label'
+                        >Password:{' '}
+                    </label>    
 
-            <button 
-                type="btn" 
-                onClick={() => {
-                    findUser();
-                    setCurUse(foundUser);
-                    setLogin('')
-                    setPass('')
-                }}>Submit
-            </button>
+                    <input 
+                        type="password" 
+                        name="desc-entry" 
+                        className="entry desc-entry" 
+                        value={pass} 
+                        onChange={(e) => {
+                            setPass(e.target.value);
+                            console.log(e.target.value)
+                        }} 
+                    />
+                </div>
+                {validCheck ? '' : <span className="valid-span">*The combination you entered is incorrect!</span>}
 
-            {validCheck ? '' : <span>The combination you entered is incorrect!</span>}
-            
-        </div> : <NewUser setCurUse={setCurUse}/>
-    }
-        <div className="login-spans">
-            <span className="stat-span">{createOrLogin ? 'Already have an account? ' : "Don't have an account? "}</span>
-            <span className='link-span' onClick={()=> toggleCOL(!createOrLogin)}>{createOrLogin ? 'Log In' : 'Create One'}</span>
+                <button 
+                    className="create-user-btn"
+                    type="btn" 
+                    onClick={() => {
+                        findUser();
+                        setCurUse(foundUser);
+                        setLogin('')
+                        setPass('')
+                    }}>Submit
+                </button>
+                
+            </div> : <NewUser setCurUse={setCurUse}/>
+            }
+            <div className="login-spans">
+                <span className="stat-span">{createOrLogin ? 'Already have an account? ' : "Don't have an account? "}</span>
+                <span className='link-span' onClick={()=> toggleCOL(!createOrLogin)}>{createOrLogin ? 'Log In' : 'Create One'}</span>
+            </div>
         </div>
-    </div>
     )
 }
