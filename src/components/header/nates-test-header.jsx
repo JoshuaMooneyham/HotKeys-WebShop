@@ -18,8 +18,10 @@ export default function TestHeader () {
 
             <ul className="links">
                 <CustomLink to='/'>Home</CustomLink>
+                <CustomLink to='/shopping'>Shop All</CustomLink>
                 <CustomLink to='/cart'>Cart</CustomLink>
                 <CustomLink to='/user'>User</CustomLink>
+                
             </ul>
         </nav>
     );

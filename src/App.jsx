@@ -16,6 +16,7 @@ import RenderAllItems from './components/delete-entry/DeleteEntry';
 import { useState, useEffect } from 'react';
 import MyAccount from './components/my-account/MyAccount';
 import { GetProducts } from './components/crud-requests/CrudRequests';
+import { SearchBar } from './components/Shopping/ShoppingDisplay';
 
 function App({featured}) {
   // let [featured, setFeatured] = useState([])
