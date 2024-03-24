@@ -21,9 +21,7 @@ code {
 .clicked {
   background-color: brown;
 }
-<<<<<<< HEAD
 /* nates-test-header navbar css begin */
-=======
 
 .overall-app-container {
   height: 100vh;
@@ -37,7 +35,6 @@ code {
 }
 
 /* ====={ Header styling }===== */
->>>>>>> 49dbf11eabc4f47dbeb095bd02f759c1a57dcb32
 .nav {
   background-color: #e0fbfc;
   color: black;
@@ -106,7 +103,6 @@ code {
   border-radius: 14px;
 }
 
-<<<<<<< HEAD
 /* FeaturedCard css begin */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -134,7 +130,6 @@ code {
   justify-content: center;
 }
 /* App main content container end */
-=======
 /* Account Visualization styling */
 
 .account-view {
@@ -177,4 +172,29 @@ code {
   border: none;
   background-color: #EE6C3D;
 }
->>>>>>> 49dbf11eabc4f47dbeb095bd02f759c1a57dcb32
+
+/* Search Bar Styling */
+.searchBarContainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+
+}
+
+.input-wrapper {
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  height: 2.5rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  display:flex;
+  align-items: center;
+} 
+
+#search-icon {
+  color: blue;
+}
+

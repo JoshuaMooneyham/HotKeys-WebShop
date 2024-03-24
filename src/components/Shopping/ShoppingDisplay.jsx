@@ -1,27 +1,34 @@
+import { GetProducts } from "../crud-requests/CrudRequests.jsx";
+import { useState } from "react";
+// import {FaSearch} from "react-icons/fa";
 
-function ShoppingList({item}){                          //Need to know what .something to pull from//
-    return (
-        <div className = "shopping.list">
-            <div>
-                <img src = {item.picture}></img>
-            </div>
-            <div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <p>{item.price}</p>
-            </div>
-        </div>
-    )
-}
-//Need to add to pull from search bar///
-function FetchApi(){
-    const [items, setItems] = useState([]);
-    fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data));
+
+export const SearchBar = () => {
+    const [input, setInput] = useState("");
+    const shoppingItems = GetProducts()
+    const handleChange = (event) => {
+        setInput(event.target.value);
+     
+    }
     return(
-        <div className = "shopping.container">
-            {items.map(item =>
-                <ShoppingList item = {item}/>)}
+        <div className = "searchBarContainer">
+            <div className="input-wrapper">
+                {/* <FaSearch id="search-icon"/> */}
+                <input placeholder="Type to search..."
+                  value={input}
+                  onChange={handleChange}/>
+            </div>
+            <div className= "shoppingResults">
+                <div>
+                    <img src = {shoppingItems.picture}></img>
+                </div>
+                <div>
+                    <h3>{shoppingItems.title}</h3>
+                    <p>{shoppingItems.description}</p>
+                    <p>{shoppingItems.price}</p>
+                    {/* <button className="featured-card-button" onClick={getShoppingItemsId}>{shoppingCart.includes(shoppingItems) ? 'Added!' : 'Add to Cart'}</button> */}
+                </div>
+            </div>
         </div>
     )
-    
 }

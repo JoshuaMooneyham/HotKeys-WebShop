@@ -15,6 +15,7 @@ import { LogIn, NewProduct, NewUser } from './components/create-entry/CreateEntr
 import RenderAllItems from './components/delete-entry/DeleteEntry';
 import { useState, useEffect } from 'react';
 import MyAccount from './components/my-account/MyAccount';
+import { SearchBar } from './components/Shopping/ShoppingDisplay';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -49,6 +50,7 @@ function App() {
         <div className='container'>
           <Routes>
             <Route path='/' element={<LandingWelcome featured={featured}/>}/>
+            <Route path='shopping' element={<SearchBar/>}/>
             <Route path='/cart' element={<TestCart />}/>
             {/* <Route path='/user' element={<TestUser />}/> */}
             <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser} curUse={currentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
