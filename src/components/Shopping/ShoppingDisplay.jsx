@@ -6,6 +6,7 @@ import SearchBar from "../searchbar/SearchBar.jsx";
 
 
 function ShoppingList({inputFromSearch, cart, setCart}){
+    debugger;
     console.log('IFS', inputFromSearch)
     let [shoppingItems, setData] = useState([])
     shoppingItems = GetProducts()
@@ -17,10 +18,14 @@ function ShoppingList({inputFromSearch, cart, setCart}){
         list[object].toString().toLowerCase().includes(inputFromSearch)))
     }
     return(
-    
-    shoppingItems.length > 0 && <div className="allProducts">{search(shoppingItems).map((items) => {    
+        <div className ="allProducts">
+        {shoppingItems.length > 0 && search(shoppingItems).map((items) => { 
+        console.log("IDK", items);   
         <FeaturedCard productListing = {items} shoppingCart = {cart} addToCart = {setCart}/>
-        })}</div>
+        })}
+        </div>
+        
+    
      )
     
 }
@@ -37,9 +42,9 @@ export default function HappyShopping ({cart, setCart}){
             <div className="search">
             <SearchBar setInput={setBarInput}/>
             </div>
-            <ul className="shop-store">
+            <div className="shop-store">
             {barInput != '' ? <ShoppingList inputFromSearch={barInput} cart={cart} setCart={setCart}/> : <div className="allProducts">{allProducts.map((item)=> <FeaturedCard productListing={item} shoppingCart={cart} addToCart={setCart}/> )}</div>}
-            </ul>
+            </div>
         </div>
     )
 }
