@@ -30,10 +30,10 @@ function LandingWelcome({featured, shoppingCart, addToCart}) {
     return (
         <div className='welcome-container'>
             <img src='welcome banner.png' className='welcome-banner'/>
-                <div className='featured'>
-                    <h2 className='featured-title'>FEATURED</h2>
-                    {featured.length > 0 ? featured.map(indiv => <FeaturedCard key={featured.indexOf(indiv)} productListing={indiv} shoppingCart={shoppingCart} addToCart={addToCart}/>) : 'Loading..'}
-                </div>
+            <h2 className='featured-title'>FEATURED</h2>
+            <div className='featured'>
+                {featured.length > 0 ? featured.map(indiv => <FeaturedCard key={featured.indexOf(indiv)} productListing={indiv} shoppingCart={shoppingCart} addToCart={addToCart}/>) : 'Loading..'}
+            </div>
         </div>
     );
 }

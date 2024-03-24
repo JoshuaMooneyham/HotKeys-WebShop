@@ -9,10 +9,6 @@ function ViewAccount({ curUse, setCurUse, state }) {
             <h1 className="account-view-greeting">Hello {curUse.name}!</h1>
             <img src={curUse.avatar} alt="pfp" className='account-view-pfp'/>
 
-            {/* <button onClick={()=> state(3)}>SELL AN ITEM</button>
-            {curUse.role == 'admin' && <button onClick={() => state(4)}>REMOVE PRODUCTS</button>}
-            <button className='account-view-edit acc-btn' onClick={() => state(2)}>EDIT ACCOUNT</button>
-            <button className='account-view-logout acc-btn' onClick={() => setCurUse(null)}>LOG OUT</button> */}
             <div className={`account-btn-container ${curUse.role == 'admin' ? 'admin-btn-container' : 'customer-btn-container'}`}>
                 <button className='account-view-sell acc-btn' onClick={()=> state(3)}>SELL AN ITEM</button>
                 {curUse.role == 'admin' && <button className='account-view-remove acc-btn' onClick={() => state(4)}>REMOVE PRODUCTS</button>}
@@ -127,38 +123,3 @@ export default function MyAccount({ curUse, setCurUse }) {
         </div>
     );
 }
-
-
-
-// export default function MyAccount({ curUse, setCurUse }) {
-//     const [edit, toggleEdit] = useState(false);
-//     const [url, setUrl] = useState('');
-
-//     return (
-//         <div>
-//             <h1>Welcome {curUse.name}!</h1>
-//             <img src={curUse.avatar} alt="pfp" />
-//             {/* PFP CHANGE | render a button that switches to an input on click */}
-//             {edit ? 
-//                 <div>
-//                     <input type="text" onChange={e => setUrl(e.target.value)}/>
-//                     <button onClick={() => {
-//                         curUse.avatar = url;
-//                         window.localStorage.setItem('currentUser', JSON.stringify(curUse))
-//                         fetch(`https://api.escuelajs.co/api/v1/users/${curUse.id}`, {
-//                             method: 'PUT', 
-//                             headers: {
-//                                 "Content-Type": "application/json"
-//                             }, 
-//                             body: JSON.stringify({'avatar': url})
-//                         })
-//                         toggleEdit(!edit);
-//                     }}>
-//                         Update
-//                     </button>
-//                 </div> : 
-//             <button onClick={() => toggleEdit(!edit)}>EDIT ACCOUNT</button>}
-//             <button onClick={() => setCurUse(null)}>LOG OUT</button>
-//         </div>
-//     )
-// }
