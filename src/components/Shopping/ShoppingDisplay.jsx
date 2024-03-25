@@ -6,8 +6,6 @@ import SearchBar from "../searchbar/SearchBar.jsx";
 
 
 function ShoppingList({inputFromSearch, cart, setCart}){
-    // debugger;
-    // console.log('IFS', inputFromSearch)
     let [shoppingItems, setData] = useState([])
     shoppingItems = GetProducts()
     
@@ -33,11 +31,9 @@ function ShoppingList({inputFromSearch, cart, setCart}){
 
 
 export default function HappyShopping ({cart, setCart}){
-    debugger;
     let [allProducts, setData] = useState([])
     allProducts = GetProducts();
     const [barInput, setBarInput] = useState('');
-    console.log('bar input', barInput);
     return(
         <div className="shopping-container">
             <div className="search">
@@ -49,34 +45,3 @@ export default function HappyShopping ({cart, setCart}){
         </div>
     )
 }
-
-
-
-// import { useState } from "react";
-
-// function ShoppingList({item}){                          //Need to know what .something to pull from//
-//     return (
-//         <div className = "shopping.list">
-//             <div>
-//                 <img src = {item.picture}></img>
-//             </div>
-//             <div>
-//                 <h3>{item.title}</h3>
-//                 <p>{item.description}</p>
-//                 <p>{item.price}</p>
-//             </div>
-//         </div>
-//     )
-// }
-// //Need to add to pull from search bar///
-// function FetchApi(){
-//     const [items, setItems] = useState([]);
-//     fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data));
-//     return(
-//         <div className = "shopping.container">
-//             {items.map(item =>
-//                 <ShoppingList item = {item}/>)}
-//         </div>
-//     )
-    
-// }

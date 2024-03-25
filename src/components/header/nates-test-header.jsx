@@ -21,7 +21,7 @@ export default function TestHeader () {
 
             <ul className="links">
                 <CustomLink to='/'>Home</CustomLink>
-                <CustomLink to='/shopping'>Shop All</CustomLink>
+                <CustomLink to='/shopping'>Shop</CustomLink>
                 
                 <CustomLink to='/cart' ><FaShoppingCart id="shoppingIcon" size= "2rem" />
                 </CustomLink>

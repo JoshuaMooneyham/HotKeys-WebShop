@@ -147,10 +147,13 @@ code {
   margin-left: 2.5rem;
   height: 100%;
 }
+
 .featured {
-  margin:10px;
+  /* vv only change, revert if wanted/needed vv */
+  margin-bottom: 50px;
+  /* margin: 10px; */ /* initial margin */
+
   display:grid;
-  /* grid-auto-columns: 100%; */
   grid-column-gap: 25px;
   grid-auto-flow: column;
   padding: 25px;
@@ -165,10 +168,11 @@ code {
   grid-row-end: 3;
 }
 
-
-
 .featured-title {
-  margin-top: 5.5rem;
+  /* vv only change, revert if wanted/needed vv */
+  margin-top: 4rem;
+  /* margin-top: 5.5rem; */ /* initial margin */
+
   display:flex;
   justify-content: center;
   color: #EE6C3D;
@@ -215,7 +219,9 @@ code {
 }
 
 .featured::-webkit-scrollbar-track {
-  background: white;
+  /* Changed */
+  background: rgba(0, 0, 0, 0.085);
+  /* background: white; */
 }
 
 .featured::-webkit-scrollbar-track,
@@ -288,7 +294,8 @@ code {
 .account-view {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  border-radius: 20px;
+  height: 95%;
   width: 80%;
   overflow: hidden;
   justify-content: space-evenly;
@@ -378,7 +385,10 @@ code {
 }
 
 .bs-container {
-  height: 100%;
+  height: 95%;
+  width: 80%;
+  border-radius: 20px;
+  background-color: #293241;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -489,10 +499,12 @@ code {
 .edit-user-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 95%;
   width: 80%;
+  border-radius: 20px;
   align-items: center;
   justify-content: space-evenly;
+  background-color: #293241;
 }
 
 .edit-user-container img {
@@ -503,13 +515,15 @@ code {
 
 /* Search Bar Styling */
 .searchBarContainer {
-  padding-left: 30px;
+  /* vv Only changes vv */
+
+  /* padding-left: 30px; */ /* commented this out */
+  align-items: center; /* uncommented this */
+
   margin-top: 0;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   min-width: 200px;
-
 }
 
 .input-wrapper {
@@ -569,7 +583,9 @@ code {
 }
 
 .shop-store::-webkit-scrollbar-track {
-  background: white;
+  /* Changed */
+  background: rgba(0, 0, 0, 0.085);
+  /* background: white; */
 }
 
 .shop-store::-webkit-scrollbar-track,
@@ -596,7 +612,6 @@ code {
 }
 
 /* Cart.jsx */
-/* background colors need to be changed */
 
 .cart-header {
   color: #EE6C3D;
@@ -679,12 +694,23 @@ code {
 }
 
 /* ====={ Add New Product }===== */
+
+.wrapper {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #293241;
+  width: 80%;
+  height: 95%;
+  border-radius: 20px;
+}
+
 .new-item-cancel {
-  margin-top: 10px;
+  margin-top: -20px;
+  /* margin-right: 20px; */
   align-self: flex-end;
   text-decoration: underline;
   text-align: end;
-  /* width: 100%; */
   color: #cae9e4;
 }
 
@@ -701,7 +727,6 @@ code {
 }
 
 .new-item-form {
-  /* height: 90%; */
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -31,52 +31,54 @@ export function NewProduct({ setState }) {
     console.log(data);
 
     return( 
-        <div className='add-new-item'>
-            <p className="new-item-cancel" onClick={() => {
-                setState(1)
-            }}>{'Go Back >'}</p>
-            <form className='new-item-form' onSubmit={submitHandler}>
-                <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}
-                </label>
-                <input type="text" name="title-entry" className="title-entry entry" onChange={(e) => {
-                    setTitle(e.target.value);
-                }} />
+        <div className="wrapper">
+            <div className='add-new-item'>
+                <p className="new-item-cancel" onClick={() => {
+                    setState(1)
+                }}>{'Go Back >'}</p>
+                <form className='new-item-form' onSubmit={submitHandler}>
+                    <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}
+                    </label>
+                    <input type="text" name="title-entry" className="title-entry entry" onChange={(e) => {
+                        setTitle(e.target.value);
+                    }} />
 
-                <label htmlFor="price-entry" className='entry-label price-entry-label'>Price:{' '}
-                </label>
-                <input type="number" name="price-entry" className="entry price-entry" onChange={(e) => {
-                    setPrice(Number(e.target.value));
-                }} />
+                    <label htmlFor="price-entry" className='entry-label price-entry-label'>Price:{' '}
+                    </label>
+                    <input type="number" name="price-entry" className="entry price-entry" onChange={(e) => {
+                        setPrice(Number(e.target.value));
+                    }} />
 
-                <label htmlFor="desc-entry" className='entry-label desc-entry-label'>Description:{' '}
-                </label>
-                <input type="text" name="desc-entry" className="entry desc-entry" onChange={(e) => {
-                    setDesc(e.target.value);
-                }} />
+                    <label htmlFor="desc-entry" className='entry-label desc-entry-label'>Description:{' '}
+                    </label>
+                    <input type="text" name="desc-entry" className="entry desc-entry" onChange={(e) => {
+                        setDesc(e.target.value);
+                    }} />
 
-                <label htmlFor="cat-entry" className='entry-label cat-entry-label'>Category:{' '}
-                </label>
-                <input type="text" name="cat-entry" className="entry cat-entry" onChange={(e) => {
-                    const lowerValue = e.target.value.toLocaleLowerCase()
-                    setCategory(
-                        lowerValue == 'clothes' ? 1 :
-                        lowerValue == 'electronics' || lowerValue == 'electronic' ? 2 :
-                        lowerValue == 'furniture' ? 3 :
-                        lowerValue == 'shoes' ? 4 :
-                        lowerValue == 'misc' || lowerValue == 'miscellaneous' ? 5 : 0
-                    );
-                }} />
-                {category == 0 ? <span className="item-valid">* Please enter a valid category! (clothes, electronics, furniture, shoes, miscellaneous)</span> : ''}
+                    <label htmlFor="cat-entry" className='entry-label cat-entry-label'>Category:{' '}
+                    </label>
+                    <input type="text" name="cat-entry" className="entry cat-entry" onChange={(e) => {
+                        const lowerValue = e.target.value.toLocaleLowerCase()
+                        setCategory(
+                            lowerValue == 'clothes' ? 1 :
+                            lowerValue == 'electronics' || lowerValue == 'electronic' ? 2 :
+                            lowerValue == 'furniture' ? 3 :
+                            lowerValue == 'shoes' ? 4 :
+                            lowerValue == 'misc' || lowerValue == 'miscellaneous' ? 5 : 0
+                        );
+                    }} />
+                    {category == 0 ? <span className="item-valid">* Please enter a valid category! (clothes, electronics, furniture, shoes, miscellaneous)</span> : ''}
 
-                <label htmlFor="image-entry" className='entry-label image-entry-label'>Image URL:{' '}
-                </label>
-                <input type="text" name="image-entry" className="entry image-entry" onChange={(e) => {
-                    setImages([e.target.value]);
-                }} />
+                    <label htmlFor="image-entry" className='entry-label image-entry-label'>Image URL:{' '}
+                    </label>
+                    <input type="text" name="image-entry" className="entry image-entry" onChange={(e) => {
+                        setImages([e.target.value]);
+                    }} />
 
-                {title && price && desc && category > 0 && images ? <button className='create-user-btn new-item-btn' type="submit">Submit</button> : ''}
-            
-            </form>
+                    {title && price && desc && category > 0 && images ? <button className='create-user-btn new-item-btn' type="submit">Submit</button> : ''}
+                
+                </form>
+            </div>
         </div>
     );
 }
@@ -113,7 +115,7 @@ export function NewUser({ setCurUse }) {
             'avatar': image
         })
     }
-    console.log(data);
+    // console.log(data);
 
     return( 
         <div className='add-new-user'>
