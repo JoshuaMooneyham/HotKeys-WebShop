@@ -687,7 +687,6 @@ code {
 .add-new-item {
   display: flex;
   align-items: center;
-  height: 100%;
   flex-direction: column;
 }
 

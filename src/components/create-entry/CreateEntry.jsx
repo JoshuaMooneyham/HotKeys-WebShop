@@ -35,7 +35,7 @@ export function NewProduct({ setState }) {
             <p className="new-item-cancel" onClick={() => {
                 setState(1)
             }}>{'Go Back >'}</p>
-            <form className='new-item-form' onSubmit={submitHandler} className='new-item-form'>
+            <form className='new-item-form' onSubmit={submitHandler}>
                 <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}
                 </label>
                 <input type="text" name="title-entry" className="title-entry entry" onChange={(e) => {
@@ -134,7 +134,7 @@ export function NewUser({ setCurUse }) {
 
                     <label htmlFor="password-entry" className='entry-label password-entry-label'>password:{' '}
                     </label>
-                    <input type="text" name="password-entry" className="entry password-entry" onChange={(e) => {
+                    <input type="password" name="password-entry" className="entry password-entry" onChange={(e) => {
                         setPassword(e.target.value);
                     }} />
                 </div>
