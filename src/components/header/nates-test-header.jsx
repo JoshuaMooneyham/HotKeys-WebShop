@@ -1,4 +1,7 @@
 // experiment for react-router-dom
+import { FaShoppingCart } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
+
 
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
@@ -11,16 +14,18 @@ export default function TestHeader () {
             
 
                 <div className="header-title">
-                    <h1>HOT KEYS</h1>
-                    <h2>EVERYTHING YOU NEED</h2>
+                    <h2>HOT KEYS...   EVERYTHING YOU NEED ALL IN ONE PLACE</h2>
+                   
                 </div>
             </div>
 
             <ul className="links">
                 <CustomLink to='/'>Home</CustomLink>
                 <CustomLink to='/shopping'>Shop All</CustomLink>
-                <CustomLink to='/cart'>Cart</CustomLink>
-                <CustomLink to='/user'>User</CustomLink>
+                
+                <CustomLink to='/cart' ><FaShoppingCart id="shoppingIcon" size= "2rem" />
+                </CustomLink>
+                <CustomLink to='/user' ><MdAccountCircle id ="accountIcon"size= "2rem"/></CustomLink>
                 
             </ul>
         </nav>
