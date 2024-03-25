@@ -32,7 +32,6 @@ code {
   font-style: normal;
 }
 .overall-app-container {
-  /* background-color: #293241; */
   height: 100vh;
   width: 100vw;
 }
@@ -292,6 +291,10 @@ code {
 /* Account Visualization styling */
 
 .account-view {
+  /* bg changes */
+  /* background-color: #293241; */
+  background-color: rgba(0, 0, 0, 0.219);
+
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -300,7 +303,6 @@ code {
   overflow: hidden;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #293241;
 }
 
 .account-view-pfp {
@@ -385,10 +387,13 @@ code {
 }
 
 .bs-container {
+  /* bg changes */
+  /* background-color: #293241; */
+  background-color: rgba(0, 0, 0, 0.219);
+
   height: 95%;
   width: 80%;
   border-radius: 20px;
-  background-color: #293241;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -496,21 +501,146 @@ code {
 
 /* ====={ Account Edit View }===== */
 
+*{
+  /* outline: red dashed 1px; */
+}
+
 .edit-user-container {
+  /* bg change */
+  /* background-color: #293241; */
+  background-color: rgb(0, 0, 0, 0.219);
+
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   height: 95%;
   width: 80%;
   border-radius: 20px;
+}
+
+.edit-user-cancel {
+  font-size: 1.2em;
+  margin-right: 100px;
+}
+
+.update-pfp-wrapper {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: #293241;
+}
+
+.outer-edit-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+}
+
+.outer-edit-header {
+  width: 100%;
+  text-align: center;
+  color: #98d1c9;
+}
+
+.edit-wrapper {
+  display: flex;
+  height: 100%;
+  width: 95%;
+  align-items: center;
+  /* background-color: black; */
+}
+
+.cancel-span{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 1.3em;
+  color: #cae9e4;
+}
+
+.update-pfp-wrapper .cancel-span {
+  margin-top: 10px;
+}
+
+.cancel-span:hover{
+  color: #98d1c9;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.everythingElse {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 100px;
+  height: 70%;
+  width: 60%;
+}
+
+.update-input {
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 1.5em;
+  color: #8dc1ba;
+  background-color: rgba(0, 0, 0, 0.303);
+}
+
+.update-pfp-span-buffer {
+  height: 97px;
+  width: 420px;
+}
+
+.update-pfp-span {
+  text-align: center;
+  font-size: 1.3em;
+  color: #cae9e4;
+}
+
+.update-pfp-span:hover {
+  color: #98d1c9;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .edit-user-container img {
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 350px;
   border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.update-username {
+  display: flex;
+  width: 100%;
+}
+
+.update-header-label {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
+  color: #EE6C3D;
+  margin-right: 10px;
+}
+
+.update-header {
+  color: #EE6C3D;
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
+}
+
+.update-header-buffer {
+  display: flex;
+  height: 60px;
+}
+
+.password-buffer {
+  height: 120px;
 }
 
 /* Search Bar Styling */
@@ -696,10 +826,13 @@ code {
 /* ====={ Add New Product }===== */
 
 .wrapper {
+
+  /* background-color: #293241; */
+  background-color: rgba(0, 0, 0, 0.218);
+
   justify-content: center;
   align-items: center;
   display: flex;
-  background-color: #293241;
   width: 80%;
   height: 95%;
   border-radius: 20px;
@@ -740,8 +873,8 @@ code {
   color: rgb(202, 242, 255);
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.price-entry::-webkit-outer-spin-button,
+.price-entry::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

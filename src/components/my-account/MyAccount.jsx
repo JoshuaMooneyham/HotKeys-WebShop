@@ -27,7 +27,9 @@ function EditAccount({curUse, state}) {
     const [updateImageUrl, toggleImageUrl] = useState(false);
     const [updateUsername, toggleUsername] = useState(false);
     const [updateEmail, toggleEmail] = useState(false);
-    const [updatePassword, togglePassword] = useState(false);
+    const [passState, setPassState] = useState(1);
+    const [passwordVerifier, togglePasswordVerifier] = useState(true);
+    const [testPass, setTestPass] = useState('')
 
     const putUserData = (obj) => {
         fetch(`https://api.escuelajs.co/api/v1/users/${curUse.id}`, {
@@ -41,82 +43,156 @@ function EditAccount({curUse, state}) {
 
     return(
         <div className="edit-user-container">
-            <img className='edit-user-pfp-image' src={curUse.avatar} alt="pfp"/>
+            <div className="outer-edit-wrapper">
+                <h1 className="outer-edit-header">Click to Update!</h1>
+                <p className="new-item-cancel edit-user-cancel" onClick={() => state(1)}>{'Go Back>'}</p>
+                <div className="edit-wrapper">
 
-            {updateImageUrl ? 
-                <div className="cancel-div">
-                    <input 
-                        className="update-input"
-                        placeholder='Enter Image URL' 
-                        type="url" 
-                        onChange={e => setImageUrl(e.target.value)}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                curUse.avatar = imageUrl
-                                window.localStorage.setItem('currentUser', JSON.stringify(curUse))
-                                putUserData({'avatar': imageUrl})
-                                toggleImageUrl(!updateImageUrl)
-                            }
-                        }}/>
-                           
-                    <span className='cancel-span' onClick={() => {
-                        toggleImageUrl(!updateImageUrl)
-                    }}>
-                        Cancel
-                    </span>
-                </div> : 
-            <p onClick={() => toggleImageUrl(!updateImageUrl)}>Change Profile Image</p>}
-            
-            <h1>{`Username: ${curUse.name}`}</h1>
-            
-            {updateUsername ? 
-                <div className="cancel-div">
-                    <input type="text" 
-                        placeholder={curUse.name}
-                        onChange={e => setUsername(e.target.value)}/>
-                    <button onClick={() => {
-                        curUse.name = username;
-                        window.localStorage.setItem('currentUser', JSON.stringify(curUse))
-                        putUserData({'name': username})
-                        toggleUsername(!updateUsername);
-                    }}>
-                        APPLY
-                    </button>
-                </div> : 
-            <button onClick={() => toggleUsername(!updateUsername)}>EDIT NAME</button>}
+                    <div className="update-pfp-wrapper">
+                        <img className='edit-user-pfp-image' src={curUse.avatar} alt="pfp"/>
 
-            <h2>{curUse.email}</h2>
-            
-            {updateEmail ? 
-                <div>
-                    <input type="text" onChange={e => setEmail(e.target.value)}/>
-                    <button onClick={() => {
-                        curUse.email = email;
-                        window.localStorage.setItem('currentUser', JSON.stringify(curUse))
-                        putUserData({'email': email})
-                        toggleEmail(!updateEmail);
-                    }}>
-                        Apply
-                    </button>
-                </div> : 
-            <button onClick={() => toggleEmail(!updateEmail)}>UPDATE EMAIL</button>}
+                        {updateImageUrl ? 
+                            <div className="cancel-div">
+                                <input 
+                                    className="update-input pfp-update-input"
+                                    placeholder='Enter Image URL' 
+                                    type="url" 
+                                    onChange={e => setImageUrl(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            curUse.avatar = imageUrl
+                                            window.localStorage.setItem('currentUser', JSON.stringify(curUse))
+                                            putUserData({'avatar': imageUrl})
+                                            toggleImageUrl(!updateImageUrl)
+                                        }
+                                    }}/>
+                                    
+                                <span className='cancel-span' onClick={() => {
+                                    toggleImageUrl(!updateImageUrl)
+                                }}>
+                                    Cancel
+                                </span>
+                            </div> : 
+                        <div className="update-pfp-span-buffer">
+                            <p className='update-pfp-span' onClick={() => toggleImageUrl(!updateImageUrl)}>Change Profile Image</p>
+                        </div>
+                        }
+                    </div>
 
-            {updatePassword ? 
-                <div>
-                    <input type="text" onChange={e => setPassword(e.target.value)}/>
-                    <button onClick={() => {
-                        curUse.password = password;
-                        window.localStorage.setItem('currentUser', JSON.stringify(curUse))
-                        putUserData({'password': password})
-                        togglePassword(!updatePassword);
-                    }}>
-                        Apply
-                    </button>
-                </div> : 
-            <button onClick={() => togglePassword(!updatePassword)}>CHANGE PASSWORD</button>}
+                    <div className="everythingElse">
+                        <div className="update-username">
+                        {updateUsername ? 
+                            <div className="update-username">
+                                <h1 className="update-username-header update-header-label">{`Username: `}</h1>
+                                <input 
+                                    className="update-input username-update-input"
+                                    type="text" 
+                                    placeholder={'Current: ' + curUse.name}
+                                    onChange={e => setUsername(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            curUse.name = username;
+                                            window.localStorage.setItem('currentUser', JSON.stringify(curUse))
+                                            putUserData({'name': username})
+                                            toggleUsername(!updateUsername)
+                                        }
+                                    }}
+                                />
+                                <span className="cancel-span" onClick={() => toggleUsername(!updateUsername)}>Cancel</span>
+                            </div>
+                        : 
+                            <div className="update-header-buffer update-user-header-buffer">
+                                <h1 className='update-username-header update-header' onClick={() => toggleUsername(!updateUsername)}>{`Username: ${curUse.name}`}</h1>
+                            </div>
+                        }
+                        </div>
 
-            <button onClick={() => state(1)}>BACK</button>
-            
+                        <div className="update-email">
+                        {updateEmail ? 
+                            <div>
+                                <h1>{`Email: `}</h1>
+                                <input 
+                                    type='email' 
+                                    placeholder={curUse.email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            curUse.email = username;
+                                            window.localStorage.setItem('currentUser', JSON.stringify(curUse))
+                                            putUserData({'email': email})
+                                            toggleEmail(!updateEmail)
+                                        }
+                                    }}
+                                />
+                                <span onClick={() => toggleEmail(!updateEmail)}>Cancel</span>
+                            </div>
+                        : 
+                            <div>
+                                <h1 onClick={() => toggleEmail(!updateEmail)}>{`Email: ${curUse.email}`}</h1>
+                            </div>
+                        }
+                        </div>
+
+                        <div className="update-password">
+                        {passState === 3 ? //update password state
+                            <div className="password-buffer">
+                                <h1>{`Password: ${curUse.password}`}</h1>
+                                <input 
+                                    type='text'
+                                    placeholder='Enter new password..'
+                                    onChange={e => setPassword(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            curUse.password = password;
+                                            window.localStorage.setItem('currentUser', JSON.stringify(curUse))
+                                            putUserData({'password': password})
+                                            setPassState(1)
+                                        }
+                                    }}
+                                />
+                                <span onClick={() => {
+                                    setPassState(1);
+                                    togglePasswordVerifier(true);
+                                }}>Cancel</span>
+                            </div>
+
+                        : passState === 2 ? // verify password state
+
+                            <div className="password-buffer">
+                                <h1>{`Password: ${curUse.password.replace(/[\w]/g, '*')}`}</h1>
+                                <input 
+                                    placeholder="Verify password"
+                                    type="password"
+                                    onChange={(e) => {
+                                        setTestPass(e.target.value)
+                                    }} 
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            if (testPass === curUse.password) {
+                                                togglePasswordVerifier(true)
+                                                setPassState(3)
+                                            } else {
+                                                togglePasswordVerifier(false)
+                                            }
+                                        }
+                                    }}/>
+                                <span onClick={() => {
+                                    setPassState(1);
+                                    togglePasswordVerifier(true);
+                                }}>Cancel</span>
+                                {!passwordVerifier && <span>The password you entered is not correct!</span>}
+                            </div>
+                        :
+                            <div className="password-buffer">
+                                <h1 onClick={() => setPassState(2)}>{`Password: ${curUse.password.replace(/[\w]/g, '*')}`}</h1>
+                            </div>
+                        }
+                            {/* <div className="password-buffer"></div> */}
+                        </div>
+                    </div>
+                </div> 
+            </div>
+                {/* <p className="new-item-cancel edit-user-cancel" onClick={() => state(1)}>Go Back</p> */}
         </div>
     );
 }
