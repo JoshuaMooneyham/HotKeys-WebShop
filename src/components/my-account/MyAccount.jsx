@@ -197,18 +197,17 @@ function EditAccount({curUse, state}) {
                                 <h1 className="update-header" onClick={() => setPassState(2)}>{`Password: ${curUse.password.replace(/[\w]/g, '*')}`}</h1>
                             </div>
                         }
-                            {/* <div className="password-buffer"></div> */}
                         </div>
                     </div>
                 </div> 
             </div>
-                {/* <p className="new-item-cancel edit-user-cancel" onClick={() => state(1)}>Go Back</p> */}
         </div>
     );
 }
 
 export default function MyAccount({ curUse, setCurUse }) {
-    const [state, setState] = useState(1)
+    const [state, setState] = useState(1);
+
     return(
         <div className="account-wrapper">
             { state == 1 ? 
@@ -217,7 +216,7 @@ export default function MyAccount({ curUse, setCurUse }) {
             <EditAccount curUse={curUse} state={setState}/>
             : state == 3 ? 
             <NewProduct setState={setState}/>
-            : <RenderAllItems />}
+            : <RenderAllItems setState={setState}/>}
         </div>
     );
 }

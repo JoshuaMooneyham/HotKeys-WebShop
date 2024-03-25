@@ -116,27 +116,6 @@ code {
   color:#24324b
 }
 
-/* Remove Item Form styling */
-.removal-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.removal-card {
-  display: flex;
-  height: 200px;
-  flex-direction: column;
-}
-
-.removal-card img {
-  height: 100px;
-}
-
-.selected {
-  border: 10px rgb(0, 191, 255) solid;
-  border-radius: 14px;
-}
-
 /* Welcome/Landing Page */
 .welcome-container {
   display: grid;
@@ -857,7 +836,8 @@ code {
 }
 
 .new-item-cancel {
-  margin-top: -20px;
+  font-size: 1.2em;
+  margin-top: -40px;
   /* margin-right: 20px; */
   align-self: flex-end;
   text-decoration: underline;
@@ -895,4 +875,101 @@ code {
 .price-entry::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* ====={ Removal }===== */
+.removal-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.removal-container {
+  height: 70%;
+  width: 80%;
+  overflow-y: scroll;
+  background-color: #00000038;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border-radius: 20px;
+}
+
+.removal-container::-webkit-scrollbar {
+ height: 0; 
+}
+
+.removal-container::-webkit-scrollbar-thumb {
+  background: #EE6C3D;
+  border-radius: 92px;
+}
+
+.removal-container::-webkit-scrollbar-track {
+  background:rgba(0, 0, 0, 0.085);
+  border-radius: 92px;
+}
+
+.removal-card {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  /* height: 350px; */
+  flex-direction: column;
+  margin: 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e7dbb6;
+}
+
+.removal-card img {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+}
+
+.removal-title {
+  font-size: 1.3em;
+  color: #24324b;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  /* margin: 0px 10px 20px 10px; */
+}
+
+.selected {
+  scale: 1.10;
+  border-radius: 14px;
+}
+
+.confirm-delete {
+  width: 200px;
+  height: 70px;
+  background-color: #EE6C3D;
+  border: none;
+  border-radius: 10px;
+  color: #e0fbfc;
+}
+
+.removal-header {
+  color: #8dc1ba;
+}
+
+.remove-item-header-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin-bottom: -10px;
+}
+
+.delete-item-cancel {
+  display: flex;
+  align-self: flex-end;
+  margin-top: -10px;
 }
