@@ -5,13 +5,13 @@ function CartItem({item, cart, setCart}) {
     console.log(cart)
 
 
-    // placeholder image in case of bad url
-    const [placeholderImg, setPlaceHolderImg] = useState('For Invalid Images')
-    const setRandomPlaceholderImage = (e) => {
-        setPlaceHolderImg('https://picsum.photos/200');
-        // setPlaceHolderImg('https://placehold.co/400');
-        e.currentTarget.src = placeholderImg;
-    }
+    // // placeholder image in case of bad url
+    // const [placeholderImg, setPlaceHolderImg] = useState('For Invalid Images')
+    // const setRandomPlaceholderImage = (e) => {
+    //     setPlaceHolderImg('https://picsum.photos/200');
+    //     // setPlaceHolderImg('https://placehold.co/400');
+    //     e.currentTarget.src = placeholderImg;
+    // }
 
     
 
@@ -25,10 +25,12 @@ function CartItem({item, cart, setCart}) {
                     setCart(cart);
                     toggleTest(!test);
             }}}>
-            <img src={item.images[0]} onError={setRandomPlaceholderImage} alt="gfn" />
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-            <button type="submit">Remove from cart</button>
+            <img src={item.images[0]} alt="gfn" />
+            <div className="cartWOImage">
+            <h2 className="cart1">{item.title}</h2>
+            <h3 className="cart2">${item.price}</h3>
+            <button className="cart3" type="submit">Remove from cart</button>
+            </div>
             </form>
         </div>
     );
