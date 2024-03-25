@@ -14,7 +14,7 @@ export default function TestHeader () {
             
 
                 <div className="header-title">
-                    <h2>HOT KEYS...   EVERYTHING YOU NEED ALL IN ONE PLACE</h2>
+                    <h2 className="sectionHeader">HOT KEYS...   EVERYTHING YOU NEED ALL IN ONE PLACE</h2>
                    
                 </div>
             </div>

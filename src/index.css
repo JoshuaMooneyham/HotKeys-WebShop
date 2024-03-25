@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
 *{
   /* outline: red dashed 1px; */
   margin: 0;
@@ -11,6 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -23,6 +26,11 @@ code {
 }
 /* nates-test-header navbar css begin */
 
+.sectionHeader{
+  font-family: "Poiret One", sans-serif;
+  font-weight: 0;
+  font-style: normal;
+}
 .overall-app-container {
   /* background-color: #293241; */
   height: 100vh;
@@ -34,7 +42,7 @@ code {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-image: linear-gradient(#eadab6 , #e7dbb6 );
+  background-color: #345c72;
   height: 85%;
 }
 
@@ -64,7 +72,7 @@ code {
 }
 
 .header-icon {
-  padding-left: 40px;
+  padding-left: 200px;
   padding-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -72,14 +80,14 @@ code {
 
 .header-icon img {
   /* padding: 1rem; */
-  height: 70%;
+  height: 80%;
 }
 
 .header-title{
- padding-left: 400px;
+ padding-left: 300px;
  padding-top: 40px;
  color:#293241;
- text-shadow: 1px 1px #24324b
+ font-size: 20px;
 }
 
 .nav ul {
@@ -140,24 +148,17 @@ code {
   height: 100%;
 }
 .featured {
+  margin:10px;
   display:grid;
-  grid-auto-columns: 100%;
-  grid-column-gap: 30px;
+  /* grid-auto-columns: 100%; */
+  grid-column-gap: 25px;
   grid-auto-flow: column;
-  padding: 25px ;
+  padding: 25px;
   list-style:none;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  /* gap: 10px;
-  height: 300px;
-  align-self: center;
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  max-width: 1400px;
-  background-color: rgba(0, 0, 0, 0.219);
-  border-radius: 10px; */
+ 
+  background-color: rgba(0, 0, 0, 0.219); 
+  border-radius: 10px;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -167,7 +168,7 @@ code {
 
 
 .featured-title {
-  margin-top: 6rem;
+  margin-top: 5.5rem;
   display:flex;
   justify-content: center;
   color: #EE6C3D;
@@ -223,6 +224,7 @@ code {
   border-radius: 10px;
   width: 300px;
   height: 300px; 
+
   
 }
 
@@ -243,6 +245,7 @@ code {
   border-radius: 10px;
   width: 600px;
   height: 500px;
+  background-blend-mode: lighten;
  
 }
 .grid1{
@@ -481,6 +484,7 @@ code {
 
 /* Search Bar Styling */
 .searchBarContainer {
+  padding-left: 30px;
   margin-top: 0;
   display: flex;
   flex-direction: column;
@@ -490,6 +494,7 @@ code {
 }
 
 .input-wrapper {
+  padding-left: 20px;
   background-color: white;
   width: 1049px;
   border-radius: 20px;
@@ -524,15 +529,34 @@ code {
 
 .shopping-container{
   height: 100%;
-  overflow: hidden;
   max-width: 1400px;
 }
 .shop-store{
-  
-  height: 1000px;
-  width: 1100px;
-  padding-top:0;
-  overflow-x: scroll;
+  background-color: rgba(0, 0, 0, 0.219); 
+  border-radius: 10px;
+  height: 580px;
+  width: 1130px;
+  padding-top:10px;
+  overflow-y: scroll;
+  padding-left:20px;
+  padding-bottom: 20px;
+}
+.shop-store::-webkit-scrollbar{
+  height: 12px;
+
+}
+
+.shop-store::-webkit-scrollbar-thumb{
+  background:#EE6C3D;
+}
+
+.shop-store::-webkit-scrollbar-track {
+  background: white;
+}
+
+.shop-store::-webkit-scrollbar-track,
+.shop-store::-webkit-scrollbar-thumb{
+  border-radius:92px;
 }
 .shop-store::-webkit-scrollbar{
   display:none;

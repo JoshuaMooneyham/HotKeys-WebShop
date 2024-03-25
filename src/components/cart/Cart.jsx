@@ -48,9 +48,9 @@ console.log(cart);
     // );
 
     return (
-        <div className="overall-cart-container">
+        <div className="overall-cart-container" >
             <div className="cart-header">
-                <h1>CART</h1>
+                <h1 className="sectionHeader">CART</h1>
             </div>
             <div className="cart-items">
                 {cart.map((item) => <CartItem item={item} cart={cart} setCart={setCart}/>)}
