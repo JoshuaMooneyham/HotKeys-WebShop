@@ -238,6 +238,10 @@ code {
   
   
 }
+.featured-card-button:hover {
+  background-color: #24324b;
+  color:aliceblue;
+}
 
 .welcome-banner {
   margin-top: 10rem;
@@ -585,33 +589,76 @@ code {
 }
 
 .cart-items {
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  white-space: auto;
+  overflow-y: scroll;
   /* flex-wrap: wrap; */
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.219); 
+  height: 550px;
   width: 75vw;
-  display: flex;
+  display:grid;
+  grid-template-columns: repeat(1, 1fr);
+  border-radius:10px;
 }
 
 .cart-card {
-  scroll-snap-align: start;
+  margin:20px;
+  display:flex;
+  background:#e7dbb6;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.cart-card img{
+  width:200px;
 }
 
-.cart-card img{
-  width: 300px;
+.cartWOImage{
+  display:grid;
+  grid-template-columns: auto auto auto;
+  gap:10px;
+  align-items:end;
+  padding-bottom: 10px;
 }
 
 .cart-container {
-  margin: 5px;
+  margin: 20px;
   background-color: #cae9e4;
+  background:#e7dbb6;
+  border-radius: 10px;
+}
+
+.cart1{
+  padding-bottom: 25px;
+  margin-right: 600px; 
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+.cart2{
+  padding-bottom: 25px;
+  margin-left:50px;
+  grid-column-start: 3;
+  grid-column-end: 3;
+ 
+}
+.cart3{
+  margin-right:50px;
+  grid-column-start: 4;
+  grid-column-end: 4;
 }
 
 .cart-card button {
   font-style: bold;
-  background-color: #293241;
+  font-size: 20px;
   border-radius: 10px;
-  height: 2rem;
-  width: 5rem;
-  color: #EE6C3D;
+  border-color:#293241;
+  border-width:bold;
+  height: 4.5rem;
+  width: 7.5rem;
+  color:#293241;
+  
+}
+
+.cart-card button:hover {
+  background-color: #24324b;
+  color:aliceblue;
 }
