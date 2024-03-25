@@ -501,10 +501,6 @@ code {
 
 /* ====={ Account Edit View }===== */
 
-*{
-  /* outline: red dashed 1px; */
-}
-
 .edit-user-container {
   /* bg change */
   /* background-color: #293241; */
@@ -548,6 +544,7 @@ code {
   display: flex;
   height: 100%;
   width: 95%;
+  justify-content: space-evenly;
   align-items: center;
   /* background-color: black; */
 }
@@ -574,7 +571,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 100px;
+  /* margin-left: 100px; */
   height: 70%;
   width: 60%;
 }
@@ -614,7 +611,7 @@ code {
   margin-bottom: 20px;
 }
 
-.update-username {
+.update {
   display: flex;
   width: 100%;
 }
@@ -641,6 +638,27 @@ code {
 
 .password-buffer {
   height: 120px;
+}
+
+.verify-password-input {
+  margin: 20px 0;
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 1.5em;
+  color: #8dc1ba;
+  background-color: rgba(0, 0, 0, 0.303);
+}
+
+.invalid-password {
+  margin-left: 20px;
+  color: red;
+}
+
+.vp-cancel {
+  margin: 0;
 }
 
 /* Search Bar Styling */
