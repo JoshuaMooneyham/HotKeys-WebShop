@@ -24,6 +24,7 @@ code {
 /* nates-test-header navbar css begin */
 
 .overall-app-container {
+  /* background-color: #293241; */
   height: 100vh;
   width: 100vw;
 }
@@ -175,8 +176,8 @@ code {
 
 .featured-product-img{
   border-radius: 30px;
-  width: 400px;
-  height: 400px; 
+  /* width: 400px; */
+  /* height: 400px;  */
   border: 5px solid #cae9e4;
   
 }
@@ -498,4 +499,43 @@ code {
   flex-direction: column;
   /* align-items: center; */
   min-width: 200px;
+}
+
+/* Cart.jsx */
+/* background colors need to be changed */
+
+.cart-header {
+  color: #EE6C3D;
+}
+
+.cart-items {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  white-space: auto;
+  /* flex-wrap: wrap; */
+  background-color: red;
+  width: 75vw;
+  display: flex;
+}
+
+.cart-card {
+  scroll-snap-align: start;
+}
+
+.cart-card img{
+  width: 300px;
+}
+
+.cart-container {
+  margin: 5px;
+  background-color: #cae9e4;
+}
+
+.cart-card button {
+  font-style: bold;
+  background-color: #293241;
+  border-radius: 10px;
+  height: 2rem;
+  width: 5rem;
+  color: #EE6C3D;
 }
