@@ -328,6 +328,7 @@ code {
   border-radius: 6px;
   color: #e0fbfc;
   padding: 10px;
+  outline: none;
 }
 
 .entry:hover {

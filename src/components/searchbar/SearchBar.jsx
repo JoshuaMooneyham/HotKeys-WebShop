@@ -13,7 +13,7 @@ export default function  SearchBar({ setInput }){
                 <input placeholder="Type to search..."
                   type="text"
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    console.log('test', e.target.value);
                     setInput(e.target.value);
                   }}/>
             </div>

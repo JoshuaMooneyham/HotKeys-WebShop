@@ -15,9 +15,7 @@ export default function FeaturedCard ({productListing, shoppingCart, addToCart }
         // addToCart([...shoppingCart, productListing])
 
     //     window.localStorage.setItem('cartItems', [...cart, productListing])
-    // }
-    
-    
+    // }   
     
     return (
     

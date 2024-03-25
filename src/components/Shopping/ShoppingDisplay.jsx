@@ -6,8 +6,8 @@ import SearchBar from "../searchbar/SearchBar.jsx";
 
 
 function ShoppingList({inputFromSearch, cart, setCart}){
-    debugger;
-    console.log('IFS', inputFromSearch)
+    // debugger;
+    // console.log('IFS', inputFromSearch)
     let [shoppingItems, setData] = useState([])
     shoppingItems = GetProducts()
     
@@ -17,12 +17,12 @@ function ShoppingList({inputFromSearch, cart, setCart}){
         searchResults.some((object) =>
         list[object].toString().toLowerCase().includes(inputFromSearch)))
     }
+    console.log('input from barsearch', inputFromSearch)
+    console.log('shopping item', shoppingItems)
     return(
         <div className ="allProducts">
-        {shoppingItems.length > 0 && search(shoppingItems).map((items) => { 
-        console.log("IDK", items);   
-        <FeaturedCard productListing = {items} shoppingCart = {cart} addToCart = {setCart}/>
-        })}
+        {shoppingItems.length > 0 && search(shoppingItems).map((items) => <FeaturedCard productListing={items} shoppingCart={cart} addToCart={setCart}/>
+        )}
         </div>
         
     
