@@ -22,10 +22,11 @@ export default function FeaturedCard ({productListing, shoppingCart, addToCart }
         <div className='card'>
             {/* <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img> */}
             <div className="featured-card-container">
+            <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img>
                 <div className="featured-card-text">
-                    <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img>
+                    {/* <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img> */}
                     <h2 className='featured-product-title'>{productListing.title}</h2>
-                    <p>in {productListing.category.name}</p>
+                    <h2>in {productListing.category.name}</h2>
                     <h3>${productListing.price}</h3>
                 </div>
                 <button className="featured-card-button" onClick={() => addToCart([...shoppingCart, productListing])}>{shoppingCart.includes(productListing) ? 'Added!' : 'Add to Cart'}</button>

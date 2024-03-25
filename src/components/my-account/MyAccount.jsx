@@ -130,7 +130,7 @@ export default function MyAccount({ curUse, setCurUse }) {
             : state == 2 ? 
             <EditAccount curUse={curUse} state={setState}/>
             : state == 3 ? 
-            <NewProduct />
+            <NewProduct setState={setState}/>
             : <RenderAllItems />}
         </div>
     );

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 
-export function NewProduct() {
+export function NewProduct({ setState }) {
     const [title, setTitle] = useState(null);
     const [price, setPrice] = useState(null);
     const [desc, setDesc] = useState(null);
@@ -32,47 +32,50 @@ export function NewProduct() {
 
     return( 
         <div className='add-new-item'>
-            <form onSubmit={submitHandler} className='new-item-form'>
+            <p className="new-item-cancel" onClick={() => {
+                setState(1)
+            }}>{'Go Back >'}</p>
+            <form className='new-item-form' onSubmit={submitHandler} className='new-item-form'>
                 <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}
-                    <input type="text" name="title-entry" className="title-entry" onChange={(e) => {
-                        setTitle(e.target.value);
-                    }} />
                 </label>
+                <input type="text" name="title-entry" className="title-entry entry" onChange={(e) => {
+                    setTitle(e.target.value);
+                }} />
 
                 <label htmlFor="price-entry" className='entry-label price-entry-label'>Price:{' '}
-                    <input type="number" name="price-entry" className="entry price-entry" onChange={(e) => {
-                        setPrice(Number(e.target.value));
-                    }} />
                 </label>
+                <input type="number" name="price-entry" className="entry price-entry" onChange={(e) => {
+                    setPrice(Number(e.target.value));
+                }} />
 
                 <label htmlFor="desc-entry" className='entry-label desc-entry-label'>Description:{' '}
-                    <input type="text" name="desc-entry" className="entry desc-entry" onChange={(e) => {
-                        setDesc(e.target.value);
-                    }} />
                 </label>
+                <input type="text" name="desc-entry" className="entry desc-entry" onChange={(e) => {
+                    setDesc(e.target.value);
+                }} />
 
                 <label htmlFor="cat-entry" className='entry-label cat-entry-label'>Category:{' '}
-                    <input type="text" name="cat-entry" className="entry cat-entry" onChange={(e) => {
-                        const lowerValue = e.target.value.toLocaleLowerCase()
-                        setCategory(
-                            lowerValue == 'clothes' ? 1 :
-                            lowerValue == 'electronics' || lowerValue == 'electronic' ? 2 :
-                            lowerValue == 'furniture' ? 3 :
-                            lowerValue == 'shoes' ? 4 :
-                            lowerValue == 'misc' || lowerValue == 'miscellaneous' ? 5 : 0
-                        );
-                    }} />
-                    {category == 0 ? <span>Please enter a valid category! (clothes, electronics, furniture, shoes, miscellaneous)</span> : ''}
                 </label>
+                <input type="text" name="cat-entry" className="entry cat-entry" onChange={(e) => {
+                    const lowerValue = e.target.value.toLocaleLowerCase()
+                    setCategory(
+                        lowerValue == 'clothes' ? 1 :
+                        lowerValue == 'electronics' || lowerValue == 'electronic' ? 2 :
+                        lowerValue == 'furniture' ? 3 :
+                        lowerValue == 'shoes' ? 4 :
+                        lowerValue == 'misc' || lowerValue == 'miscellaneous' ? 5 : 0
+                    );
+                }} />
+                {category == 0 ? <span className="item-valid">* Please enter a valid category! (clothes, electronics, furniture, shoes, miscellaneous)</span> : ''}
 
                 <label htmlFor="image-entry" className='entry-label image-entry-label'>Image URL:{' '}
-                    <input type="text" name="image-entry" className="entry image-entry" onChange={(e) => {
-                        setImages([e.target.value]);
-                    }} />
                 </label>
+                <input type="text" name="image-entry" className="entry image-entry" onChange={(e) => {
+                    setImages([e.target.value]);
+                }} />
 
-                {title && price && desc && category > 0 && images ? <button type="submit">Submit</button> : ''}
-
+                {title && price && desc && category > 0 && images ? <button className='create-user-btn new-item-btn' type="submit">Submit</button> : ''}
+            
             </form>
         </div>
     );

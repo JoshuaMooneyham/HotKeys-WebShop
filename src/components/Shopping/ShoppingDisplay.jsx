@@ -33,6 +33,7 @@ function ShoppingList({inputFromSearch, cart, setCart}){
 
 
 export default function HappyShopping ({cart, setCart}){
+    debugger;
     let [allProducts, setData] = useState([])
     allProducts = GetProducts();
     const [barInput, setBarInput] = useState('');
