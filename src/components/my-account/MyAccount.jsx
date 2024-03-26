@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { NewProduct } from "../create-entry/CreateEntry";
 import RenderAllItems from "../delete-entry/DeleteEntry";
+import { GetUsers } from "../crud-requests/CrudRequests";
 
 function ViewAccount({ curUse, setCurUse, state }) {
-
+    console.log(curUse)
     return(
         <div className='account-view'>
             <h1 className="account-view-greeting">Hello {curUse.name}!</h1>
@@ -19,7 +20,7 @@ function ViewAccount({ curUse, setCurUse, state }) {
     );
 }
 
-function EditAccount({curUse, state}) {
+function EditAccount({curUse, state, setCurUse}) {
     const [imageUrl, setImageUrl] = useState(undefined);
     const [username, setUsername] = useState(undefined);
     const [email, setEmail] = useState(undefined);
@@ -40,6 +41,15 @@ function EditAccount({curUse, state}) {
             body: JSON.stringify(obj)
         })
     };
+
+    let allUsers = GetUsers();
+    if (curUse.id === undefined && allUsers.length > 0) {
+        allUsers.forEach((item) => {
+            if (item.name === curUse.name && item.email === curUse.email) {
+                setCurUse(item);
+            }
+        })
+    }
 
     console.log(curUse)
 
@@ -215,7 +225,7 @@ export default function MyAccount({ curUse, setCurUse }) {
             { state == 1 ? 
             <ViewAccount curUse={curUse} setCurUse={setCurUse} state={setState}/> 
             : state == 2 ? 
-            <EditAccount curUse={curUse} state={setState}/>
+            <EditAccount curUse={curUse} setCurUse={setCurUse} state={setState}/>
             : state == 3 ? 
             <NewProduct setState={setState}/>
             : <RenderAllItems setState={setState}/>}
