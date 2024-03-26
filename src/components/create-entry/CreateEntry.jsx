@@ -75,11 +75,14 @@ export function NewProduct({ setState }) {
 }
 
 export function NewUser({ setCurUse }) {
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [email, setEmail] = useState(null);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const [role, setRole] = useState('customer');
     const image = 'https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png';
+    const [testUser, toggleTestUser] = useState(true);
+    const [testPassword, toggleTestPassword] = useState(true);
+    const [testEmail, toggleTestEmail] = useState(true);
 
     function submitHandler() {
         fetch('https://api.escuelajs.co/api/v1/users', {
@@ -104,28 +107,43 @@ export function NewUser({ setCurUse }) {
         })
     }
 
+    function checkEmail() {
+        return /[a-zA-Z0-9]+@[a-zA-Z]+\.[a-z]+[a-z]+/i.test(email);
+    }
+
+    function checkPassword() {
+        return password.length > 3;
+    }
+
+    function checkUsername() {
+        return username.length > 1;
+    }
+
     return( 
         <div className='add-new-user'>
-            <form onSubmit={submitHandler} className='new-user-form'>
-
+            <div className="new-user-form">
                 <div className="create-account-inputs">
-                    <label htmlFor="email-entry" className="entry-label email-entry-label">email:{' '}
-                    </label>
-                    <input type="text" name="email-entry" className="entry email-entry" onChange={(e) => {
-                        setEmail(e.target.value);
-                    }} />
-
-                    <label htmlFor="username-entry" className='entry-label username-entry-label'>username:{' '}
-                    </label>
-                    <input type="text" name="username-entry" className="entry username-entry" onChange={(e) => {
-                        setUsername(e.target.value);
-                    }} />
-
-                    <label htmlFor="password-entry" className='entry-label password-entry-label'>password:{' '}
-                    </label>
-                    <input type="password" name="password-entry" className="entry password-entry" onChange={(e) => {
-                        setPassword(e.target.value);
-                    }} />
+                    <div className="indiv-input-wrapper">
+                        <label htmlFor="email-entry" className="entry-label email-entry-label">email:{' '}</label>
+                        <input type="text" name="email-entry" className="entry email-entry" onChange={(e) => {
+                            setEmail(e.target.value);
+                        }} />
+                        {!testEmail && <span className="create-invalid">Please enter a valid fake email</span>}
+                    </div>
+                    <div className="indiv-input-wrapper">
+                        <label htmlFor="username-entry" className='entry-label username-entry-label'>username:{' '}</label>
+                        <input type="text" name="username-entry" className="entry username-entry" onChange={(e) => {
+                            setUsername(e.target.value);
+                        }} />
+                        {!testUser && <span className="create-invalid">Please enter a valid username (at least 2 characters)</span>}
+                    </div>
+                    <div className="indiv-input-wrapper">
+                        <label htmlFor="password-entry" className='entry-label password-entry-label'>password:{' '}</label>
+                        <input type="password" name="password-entry" className="entry password-entry" onChange={(e) => {
+                            setPassword(e.target.value);
+                        }} />
+                        {!testPassword && <span className="create-invalid">Please enter a valid password (at least 4 characters)</span>}
+                    </div>
                 </div>
                 <div className="admin-check-wrapper">
                     <label htmlFor="admin-check" className="ac-label">Admin?</label>
@@ -134,9 +152,19 @@ export function NewUser({ setCurUse }) {
                     }}/>
                 </div>
 
-                <button className='create-user-btn' type="submit">Submit</button>
-
-            </form>
+                <button 
+                    className='create-user-btn' 
+                    type="button"
+                    onClick={() => {
+                        if (checkEmail() && checkPassword() && checkUsername()) {
+                            submitHandler()
+                        } else {
+                            toggleTestEmail(checkEmail());
+                            toggleTestPassword(checkPassword());
+                            toggleTestUser(checkUsername());
+                        }
+                    }}>Submit</button>
+            </div>
         </div>
     );
 }

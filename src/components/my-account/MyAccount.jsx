@@ -41,6 +41,8 @@ function EditAccount({curUse, state}) {
         })
     };
 
+    console.log(curUse)
+
     return(
         <div className="edit-user-container">
             <div className="outer-edit-wrapper">

@@ -403,6 +403,17 @@ code {
   font-size: 3em;
 }
 
+.indiv-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 132px;
+}
+
+.create-invalid {
+  color: #e0fbfc;
+  text-align: right;
+}
+
 .entry {
   font-size: 1.7em;
   width: 600px;
