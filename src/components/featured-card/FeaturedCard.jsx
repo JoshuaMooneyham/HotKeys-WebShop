@@ -11,7 +11,8 @@ export default function FeaturedCard ({productListing, shoppingCart, addToCart }
                 </div>
                 <div className="featuredPriceandButton">
                     <h3>${productListing.price}</h3>
-                    <button className="featured-card-button" onClick={() => addToCart([...shoppingCart, productListing])}>{shoppingCart.includes(productListing) ? 'Added!' : 'Add to Cart'}</button>
+                    {shoppingCart.includes(productListing) ? <button className="featured-card-button fcb-incart">In Cart!</button> :
+                    <button className="featured-card-button" onClick={() => addToCart([...shoppingCart, productListing])}>Add to Cart</button>}
                 </div>
             </div>
         </div>
