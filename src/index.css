@@ -1026,3 +1026,7 @@ code {
 .cart-items::-webkit-scrollbar-thumb{
   border-radius:92px;
 }
+
+.checkoutContainer {
+  text-align: center;
+}
