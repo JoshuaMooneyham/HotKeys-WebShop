@@ -245,6 +245,11 @@ code {
   color:aliceblue;
 }
 
+.fcb-incart {
+  background-color: #24324b;
+  color: aliceblue;
+}
+
 .welcome-banner {
   margin-top: 10rem;
   align-self: center;
@@ -960,6 +965,7 @@ code {
   height: 200px;
   width: 200px;
   margin: 20px;
+  border-radius: 10px;
 }
 
 .removal-title {
