@@ -27,9 +27,11 @@ function CartItem({item, cart, setCart}) {
             }}}>
             <img src={item.images[0]} alt="gfn" />
             <div className="cartWOImage">
-            <h2 className="cart1">{item.title}</h2>
-            <h3 className="cart2">${item.price}</h3>
-            <button className="cart3" type="submit">Remove from cart</button>
+                <div className="cart-name-and-price">
+                    <h2 className="cart1">{item.title}</h2>
+                    <h3 className="cart2">Price: ${item.price}</h3>
+                </div>
+                <button className="cart3" type="submit">Remove from cart</button>
             </div>
             </form>
         </div>
