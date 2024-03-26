@@ -43,7 +43,6 @@ function App({featured}) {
     window.localStorage.setItem('cartItems', JSON.stringify(cart));
   }, [cart])
 
-//   //change//
   return(
     <>
       <div className='overall-app-container'>

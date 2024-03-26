@@ -54,6 +54,7 @@ function EditAccount({curUse, state}) {
                         {updateImageUrl ? 
                             <div className="cancel-div">
                                 <input 
+                                    autoComplete="off"
                                     className="update-input pfp-update-input"
                                     placeholder='Enter Image URL' 
                                     type="url" 
@@ -80,11 +81,12 @@ function EditAccount({curUse, state}) {
                     </div>
 
                     <div className="everythingElse">
-                        <div className="update-username">
+                        <div className="update">
                         {updateUsername ? 
-                            <div className="update-username">
+                            <div className="update">
                                 <h1 className="update-username-header update-header-label">{`Username: `}</h1>
                                 <input 
+                                    autoComplete="off"
                                     className="update-input username-update-input"
                                     type="text" 
                                     placeholder={'Current: ' + curUse.name}
@@ -107,28 +109,30 @@ function EditAccount({curUse, state}) {
                         }
                         </div>
 
-                        <div className="update-email">
+                        <div className="update">
                         {updateEmail ? 
-                            <div>
-                                <h1>{`Email: `}</h1>
+                            <div className="update">
+                                <h1 className="update-email-header update-header-label">{`Email: `}</h1>
                                 <input 
+                                    autoComplete="off"
+                                    className="update-input email-update-input"
                                     type='email' 
-                                    placeholder={curUse.email}
+                                    placeholder={`Current: ${curUse.email}`}
                                     onChange={e => setEmail(e.target.value)}
                                     onKeyDown={(e) => {
                                         if (e.key === 'Enter') {
-                                            curUse.email = username;
+                                            curUse.email = email;
                                             window.localStorage.setItem('currentUser', JSON.stringify(curUse))
                                             putUserData({'email': email})
                                             toggleEmail(!updateEmail)
                                         }
                                     }}
                                 />
-                                <span onClick={() => toggleEmail(!updateEmail)}>Cancel</span>
+                                <span className="cancel-span" onClick={() => toggleEmail(!updateEmail)}>Cancel</span>
                             </div>
                         : 
-                            <div>
-                                <h1 onClick={() => toggleEmail(!updateEmail)}>{`Email: ${curUse.email}`}</h1>
+                            <div className="update-header-buffer">
+                                <h1 className="update-email-header update-header" onClick={() => toggleEmail(!updateEmail)}>{`Email: ${curUse.email}`}</h1>
                             </div>
                         }
                         </div>
@@ -136,31 +140,37 @@ function EditAccount({curUse, state}) {
                         <div className="update-password">
                         {passState === 3 ? //update password state
                             <div className="password-buffer">
-                                <h1>{`Password: ${curUse.password}`}</h1>
-                                <input 
-                                    type='text'
-                                    placeholder='Enter new password..'
-                                    onChange={e => setPassword(e.target.value)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === 'Enter') {
-                                            curUse.password = password;
-                                            window.localStorage.setItem('currentUser', JSON.stringify(curUse))
-                                            putUserData({'password': password})
-                                            setPassState(1)
-                                        }
-                                    }}
-                                />
-                                <span onClick={() => {
-                                    setPassState(1);
-                                    togglePasswordVerifier(true);
-                                }}>Cancel</span>
+                                <div className="update">
+                                    <h1 className="update-header-label">{`Password: `}</h1>
+                                    <input 
+                                        autoComplete="off"
+                                        className="update-input password-update-input"
+                                        type='text'
+                                        placeholder={`Current: ${curUse.password}`}
+                                        onChange={e => setPassword(e.target.value)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter') {
+                                                curUse.password = password;
+                                                window.localStorage.setItem('currentUser', JSON.stringify(curUse))
+                                                putUserData({'password': password})
+                                                setPassState(1)
+                                            }
+                                        }}
+                                    />
+                                    <span className="cancel-span" onClick={() => {
+                                        setPassState(1);
+                                        togglePasswordVerifier(true);
+                                    }}>Cancel</span>
+                                </div>
                             </div>
 
                         : passState === 2 ? // verify password state
 
                             <div className="password-buffer">
-                                <h1>{`Password: ${curUse.password.replace(/[\w]/g, '*')}`}</h1>
+                                <h1 className="update-header">{`Password: ${curUse.password.replace(/[\w]/g, '*')}`}</h1>
                                 <input 
+                                    autoComplete="off"
+                                    className="verify-password-input"
                                     placeholder="Verify password"
                                     type="password"
                                     onChange={(e) => {
@@ -176,29 +186,28 @@ function EditAccount({curUse, state}) {
                                             }
                                         }
                                     }}/>
-                                <span onClick={() => {
+                                {!passwordVerifier && <span className="invalid-password">* The password you entered is not correct!</span>}
+                                <span className="cancel-span vp-cancel" onClick={() => {
                                     setPassState(1);
                                     togglePasswordVerifier(true);
                                 }}>Cancel</span>
-                                {!passwordVerifier && <span>The password you entered is not correct!</span>}
                             </div>
                         :
                             <div className="password-buffer">
-                                <h1 onClick={() => setPassState(2)}>{`Password: ${curUse.password.replace(/[\w]/g, '*')}`}</h1>
+                                <h1 className="update-header" onClick={() => setPassState(2)}>{`Password: ${curUse.password.replace(/[\w]/g, '*')}`}</h1>
                             </div>
                         }
-                            {/* <div className="password-buffer"></div> */}
                         </div>
                     </div>
                 </div> 
             </div>
-                {/* <p className="new-item-cancel edit-user-cancel" onClick={() => state(1)}>Go Back</p> */}
         </div>
     );
 }
 
 export default function MyAccount({ curUse, setCurUse }) {
-    const [state, setState] = useState(1)
+    const [state, setState] = useState(1);
+
     return(
         <div className="account-wrapper">
             { state == 1 ? 
@@ -207,7 +216,7 @@ export default function MyAccount({ curUse, setCurUse }) {
             <EditAccount curUse={curUse} state={setState}/>
             : state == 3 ? 
             <NewProduct setState={setState}/>
-            : <RenderAllItems />}
+            : <RenderAllItems setState={setState}/>}
         </div>
     );
 }
