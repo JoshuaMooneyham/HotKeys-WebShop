@@ -1,3 +1,5 @@
+
+
 function CartItem({item, cart, setCart}) {
 
     return(
@@ -19,7 +21,7 @@ function CartItem({item, cart, setCart}) {
                                 cart.splice(cart.indexOf(item), 1);
                                 window.localStorage.setItem('cartItems', JSON.stringify(cart));
                                 setCart([...cart])
-                    }}}>Remove from cart</button>
+                    }}}>Remove</button>
                 </div>
             </div>
         </div>

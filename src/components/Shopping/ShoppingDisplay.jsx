@@ -4,7 +4,7 @@ import FeaturedCard from '../featured-card/FeaturedCard.jsx';
 import SearchBar from "../searchbar/SearchBar.jsx";
 
 
-
+//==========={ Display shopping list after search input }============//
 function ShoppingList({inputFromSearch, cart, setCart}){
     debugger;
     let [shoppingItems, setData] = useState([])
@@ -21,8 +21,9 @@ function ShoppingList({inputFromSearch, cart, setCart}){
     return(
         <div className ="allProducts">
         {shoppingItems.length > 0 && search(shoppingItems).map((items) => <FeaturedCard productListing={items} shoppingCart={cart} addToCart={setCart}/>
-        )}
+        )}  
         </div>
+   
         
     
      )
@@ -44,5 +45,6 @@ export default function HappyShopping ({cart, setCart}){
             {barInput != '' ? <ShoppingList inputFromSearch={barInput} cart={cart} setCart={setCart}/> : <div className="allProducts">{allProducts.map((item)=> <FeaturedCard productListing={item} shoppingCart={cart} addToCart={setCart}/> )}</div>}
             </div>
         </div>
+                       //^ this will make it display all items until search input//
     )
 }

@@ -749,6 +749,7 @@ code {
 .cart-header {
   color: #EE6C3D;
   font-style:bold;
+  font-size: 20px;
 }
 
 .cart-items {
@@ -786,6 +787,7 @@ code {
 
   align-items:start;
   padding-bottom: 10px;
+  color:#293241;
 }
 
 
@@ -1025,6 +1027,7 @@ code {
 
 .removal-header {
   color: #8dc1ba;
+  
 }
 
 .remove-item-header-items {
