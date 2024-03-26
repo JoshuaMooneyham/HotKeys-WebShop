@@ -12,10 +12,6 @@ function App({featured}) {
   const [currentUser, setCurrentUser] = useState(null);
   const [cart, setCart] = useState([]);
 
-  // console.log('user', currentUser);
-  console.log('cart', cart);
-
-
   useEffect(() => { // pull current user from local storage
     const data = window.localStorage.getItem('currentUser');
     if (data !== undefined) {
