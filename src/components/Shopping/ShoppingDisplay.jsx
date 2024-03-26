@@ -3,37 +3,31 @@ import { useState } from "react";
 import FeaturedCard from '../featured-card/FeaturedCard.jsx';
 import SearchBar from "../searchbar/SearchBar.jsx";
 
-
-
+//==========={ Display shopping list after search input }============//
 function ShoppingList({inputFromSearch, cart, setCart}){
     let [shoppingItems, setData] = useState([])
     shoppingItems = GetProducts()
 
-    console.log('shopping list cart', cart)
-    
     const searchResults = Object.keys(Object.assign({}, ...shoppingItems))
     function search(items){
         return items.filter((list) =>
         searchResults.some((object) =>
         list[object].toString().toLowerCase().includes(inputFromSearch)))
     }
-    console.log('input from barsearch', inputFromSearch)
-    console.log('shopping item', shoppingItems)
+
     return(
         <div className ="allProducts">
         {shoppingItems.length > 0 && search(shoppingItems).map((items) => <FeaturedCard productListing={items} shoppingCart={cart} addToCart={setCart}/>
-        )}
+        )}  
         </div>
      )
 }
-
-
 
 export default function HappyShopping ({cart, setCart}){
     let [allProducts, setData] = useState([])
     const [barInput, setBarInput] = useState('');
     allProducts = GetProducts();
-    console.log('HappyShopping cart', cart)
+
     return(
         <div className="shopping-container">
             <div className="search">
