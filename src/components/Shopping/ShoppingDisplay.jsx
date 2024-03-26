@@ -6,6 +6,7 @@ import SearchBar from "../searchbar/SearchBar.jsx";
 
 
 function ShoppingList({inputFromSearch, cart, setCart}){
+    debugger;
     let [shoppingItems, setData] = useState([])
     shoppingItems = GetProducts()
     
