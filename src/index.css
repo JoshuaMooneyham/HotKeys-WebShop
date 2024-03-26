@@ -130,7 +130,7 @@ code {
   /* vv only change, revert if wanted/needed vv */
   margin-bottom: 40px;
   /* margin: 10px; */ /* initial margin */
-
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   display:grid;
   grid-column-gap: 25px;
   grid-auto-flow: column;
@@ -164,8 +164,8 @@ code {
   display:flex;
   justify-content: space-between;
   align-items: stretch;
-  
 }
+
 .card{
   display: flex;
   flex-direction: column;
@@ -207,7 +207,12 @@ code {
   border-radius:92px;
 }
 
+.featured-product-title {
+  text-align: center;
+}
+
 .featured-product-img{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   
   border-radius: 10px;
   width: 300px;
@@ -231,15 +236,15 @@ code {
 
 
 .featured-card-button{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   color:#293241;
   font-style: bold;
   border: #293241;
   border-radius: 10px;
   height: 2rem;
   width: 5rem;
-  
-  
 }
+
 .featured-card-button:hover {
   background-color: #24324b;
   color:aliceblue;
@@ -275,6 +280,7 @@ code {
 /* Account Visualization styling */
 
 .account-view {
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   /* bg changes */
   /* background-color: #293241; */
   background-color: rgba(0, 0, 0, 0.219);
@@ -290,6 +296,7 @@ code {
 }
 
 .account-view-pfp {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   height: 300px;
   width: 300px;
   border-radius: 100%;
@@ -310,6 +317,7 @@ code {
 }
 
 .acc-btn {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   height: 70px;
   width: 200px;
   border-radius: 5px;
@@ -373,8 +381,8 @@ code {
 .bs-container {
   /* bg changes */
   /* background-color: #293241; */
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: rgba(0, 0, 0, 0.219);
-
   height: 95%;
   width: 80%;
   border-radius: 20px;
@@ -399,6 +407,7 @@ code {
   color: #e0fbfc;
   padding: 10px;
   outline: none;
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .entry:hover {
@@ -436,6 +445,7 @@ code {
 }
 
 .create-user-btn {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   width: 150px;
   height: 60px;
   /* margin-top: 25px; */
@@ -486,10 +496,10 @@ code {
 /* ====={ Account Edit View }===== */
 
 .edit-user-container {
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   /* bg change */
   /* background-color: #293241; */
   background-color: rgb(0, 0, 0, 0.219);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -559,16 +569,28 @@ code {
   height: 70%;
   width: 60%;
 }
-
+/* abcdefg */
 .update-input {
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   width: 400px;
   height: 40px;
   border-radius: 10px;
-  border: none;
   padding: 10px;
+  border: none;
   font-size: 1.5em;
   color: #8dc1ba;
   background-color: rgba(0, 0, 0, 0.303);
+}
+
+.update-input:hover {
+  transition: 0.1s;
+  opacity: 50%;
+}
+
+.update-input:focus {
+  opacity: 100%;
+  background-color: #98d1c9;
+  outline: none;
 }
 
 .update-pfp-span-buffer {
@@ -593,6 +615,7 @@ code {
   width: 350px;
   border-radius: 50%;
   margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .update {
@@ -615,6 +638,12 @@ code {
   padding-bottom: 4px;
 }
 
+.update-header:hover {
+  color: #f77d50;
+  cursor: pointer;
+  transition: .2s;
+}
+
 .update-header-buffer {
   display: flex;
   height: 60px;
@@ -625,6 +654,7 @@ code {
 }
 
 .verify-password-input {
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 20px 0;
   width: 200px;
   height: 30px;
@@ -634,6 +664,17 @@ code {
   font-size: 1.5em;
   color: #8dc1ba;
   background-color: rgba(0, 0, 0, 0.303);
+}
+
+.verify-password-input:hover {
+  transition: 0.1s;
+  opacity: 50%;
+}
+
+.verify-password-input:focus {
+  opacity: 100%;
+  background-color: #98d1c9;
+  outline: none;
 }
 
 .invalid-password {
@@ -697,6 +738,7 @@ code {
   max-width: 1400px;
 }
 .shop-store{
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: rgba(0, 0, 0, 0.219); 
   border-radius: 10px;
   height: 580px;
@@ -748,10 +790,12 @@ code {
 
 .cart-header {
   color: #EE6C3D;
+  font-size: 2em;
   font-style:bold;
 }
 
 .cart-items {
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.219); 
   height: 550px;
@@ -765,36 +809,34 @@ code {
   margin:20px;
   display:flex;
   background:#e7dbb6;
-  /* justify-content: space-between; */
   align-items: stretch;
 }
+
 .cart-card img{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   width: 200px;
   height: 200px;
   border-radius: 10px;
 }
 
 .cartWOImage{
-  /* display:grid;
-  grid-template-columns: auto auto auto; */
-  /* gap:10px; */
   display: flex;
   margin: 10px;
   justify-content: space-between;
   width: 100%;
-  /* border: yellowgreen solid; */
-
   align-items:start;
   padding-bottom: 10px;
 }
 
 
 .cart-container {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 20px;
   height: 240px;
   background-color: #cae9e4;
   background:#e7dbb6;
   border-radius: 10px;
+
 }
 
 .cart1{
@@ -812,36 +854,20 @@ code {
 }
 
 .cart2{
-  /* positioning price */
-  /* position: relative;
-  right: 250px; */
-
-
   padding-bottom: 25px;
   margin-left:50px;
   grid-column-start: 3;
   grid-column-end: 3;
- 
 }
+ 
 .cart3{
-  /* positioning button */
-  /* position: relative;
-  left: 150px;
-  bottom: 90px; */
-
   margin-right:50px;
-  /* grid-column-start: 4;
-  grid-column-end: 4; */
   align-self: flex-end;
   border: none;
 }
 
 .cart-card button {
-
-  
-
-
-
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   font-style: bold;
   font-size: 20px;
   border-radius: 10px;
@@ -861,6 +887,7 @@ code {
 }
 
 .clear-button, .checkout-button {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border: none;
   width: 150px;
   font-style: bold;
@@ -889,7 +916,7 @@ code {
 /* ====={ Add New Product }===== */
 
 .wrapper {
-
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   /* background-color: #293241; */
   background-color: rgba(0, 0, 0, 0.218);
 
@@ -930,6 +957,7 @@ code {
 }
 
 .new-item-btn {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin-top: 20px;
 }
 
@@ -954,6 +982,7 @@ code {
 }
 
 .removal-container {
+  box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2);
   height: 70%;
   width: 80%;
   overflow-y: scroll;
@@ -979,6 +1008,7 @@ code {
 }
 
 .removal-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   width: 250px;
@@ -1010,6 +1040,7 @@ code {
 }
 
 .selected {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   scale: 1.10;
   border-radius: 14px;
 }
@@ -1021,6 +1052,13 @@ code {
   border: none;
   border-radius: 10px;
   color: #e0fbfc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.confirm-delete:hover {
+  background-color: orange;
+  transition: .3s;
+  cursor: pointer;
 }
 
 .removal-header {
@@ -1063,6 +1101,8 @@ code {
 }
 
 .checkoutContainer {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
   padding: 10px;
   display: flex;
   justify-content: space-between;

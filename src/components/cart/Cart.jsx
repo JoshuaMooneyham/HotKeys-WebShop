@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function CartItem({item, cart, setCart}) {
 
     return(
@@ -28,6 +30,7 @@ function CartItem({item, cart, setCart}) {
 
 export default function TestCart ({cart, setCart}) {
     let total = cart.reduce((accumulator, items) => accumulator + items.price, 0);
+    const [checkout, toggleCheckout] = useState(false);
 
     return (
         <div className="overall-cart-container" >
@@ -41,12 +44,13 @@ export default function TestCart ({cart, setCart}) {
                 <div>
                     <button className="clear-button" onClick={() => setCart([])}>CLEAR CART</button>
                 </div>
-                <div className= "subtotal">
-                Subtotal: ${total}
+                <div className= "subtotal">{checkout ? 'Shipped!' :
+                `Subtotal: $${total}`}
                 </div>
                 <div>
                     <button className='checkout-button' onClick={() => {
                         setCart([]);
+                        toggleCheckout(true);
                     }}>CHECKOUT</button>
                 </div>
             </div>

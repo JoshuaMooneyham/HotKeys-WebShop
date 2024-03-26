@@ -6,9 +6,10 @@ import SearchBar from "../searchbar/SearchBar.jsx";
 
 
 function ShoppingList({inputFromSearch, cart, setCart}){
-    debugger;
     let [shoppingItems, setData] = useState([])
     shoppingItems = GetProducts()
+
+    console.log('shopping list cart', cart)
     
     const searchResults = Object.keys(Object.assign({}, ...shoppingItems))
     function search(items){
@@ -23,25 +24,23 @@ function ShoppingList({inputFromSearch, cart, setCart}){
         {shoppingItems.length > 0 && search(shoppingItems).map((items) => <FeaturedCard productListing={items} shoppingCart={cart} addToCart={setCart}/>
         )}
         </div>
-        
-    
      )
-    
 }
 
 
 
 export default function HappyShopping ({cart, setCart}){
     let [allProducts, setData] = useState([])
-    allProducts = GetProducts();
     const [barInput, setBarInput] = useState('');
+    allProducts = GetProducts();
+    console.log('HappyShopping cart', cart)
     return(
         <div className="shopping-container">
             <div className="search">
-            <SearchBar setInput={setBarInput}/>
+                <SearchBar setInput={setBarInput}/>
             </div>
             <div className="shop-store">
-            {barInput != '' ? <ShoppingList inputFromSearch={barInput} cart={cart} setCart={setCart}/> : <div className="allProducts">{allProducts.map((item)=> <FeaturedCard productListing={item} shoppingCart={cart} addToCart={setCart}/> )}</div>}
+                {barInput != '' ? <ShoppingList inputFromSearch={barInput} cart={cart} setCart={setCart}/> : <div className="allProducts">{allProducts.map((item)=> <FeaturedCard productListing={item} shoppingCart={cart} addToCart={setCart}/> )}</div>}
             </div>
         </div>
     )

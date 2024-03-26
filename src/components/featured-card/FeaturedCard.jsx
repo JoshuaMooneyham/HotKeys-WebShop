@@ -1,9 +1,19 @@
+import { useState } from "react";
+
 export default function FeaturedCard ({productListing, shoppingCart, addToCart }) {
-    
+    let match = false;
+
+    if (shoppingCart.length > 0) {
+        for (let item in shoppingCart) {
+            if (shoppingCart[item].id === productListing.id) {
+                match = true;
+            }
+        }
+    }
+
     return (
     
         <div className='card'>
-            {/* <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img> */}
             <div className="featured-card-container">
             <img src={productListing.images[0]} alt='product image' className='featured-product-img'></img>
                 <div className="featuredTitle">
@@ -11,7 +21,7 @@ export default function FeaturedCard ({productListing, shoppingCart, addToCart }
                 </div>
                 <div className="featuredPriceandButton">
                     <h3>${productListing.price}</h3>
-                    {shoppingCart.includes(productListing) ? <button className="featured-card-button fcb-incart">In Cart!</button> :
+                    {match ? <button className="featured-card-button fcb-incart">In Cart!</button> :
                     <button className="featured-card-button" onClick={() => addToCart([...shoppingCart, productListing])}>Add to Cart</button>}
                 </div>
             </div>

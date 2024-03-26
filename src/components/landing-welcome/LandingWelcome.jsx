@@ -24,8 +24,8 @@ function LandingWelcome({featured, shoppingCart, addToCart}) {
 
     let products = GetProducts();
     let users = GetUsers();
-    console.log('users', users);
-    console.log('products', products);
+    // console.log('users', users);
+    // console.log('products', products);
 
     return (
         <div className='welcome-container'>

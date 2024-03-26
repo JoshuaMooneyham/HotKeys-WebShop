@@ -1,9 +1,8 @@
 // // add routes to <Routes> and add a <Customlink> component to header to wire up additional pages
 import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { randomizedCall } from './components/landing-welcome/LandingWelcome'
 import TestCart from './components/cart/Cart';
-import LandingWelcome from './components/landing-welcome/LandingWelcome';
+import LandingWelcome, { randomizedCall } from './components/landing-welcome/LandingWelcome';
 import TestHeader from './components/header/nates-test-header';
 import { LogIn } from './components/create-entry/CreateEntry';
 import MyAccount from './components/my-account/MyAccount';
@@ -13,8 +12,7 @@ function App({featured}) {
   const [currentUser, setCurrentUser] = useState(null);
   const [cart, setCart] = useState([]);
 
-  console.log('user', currentUser);
-  console.log('featured', featured);
+  // console.log('user', currentUser);
   console.log('cart', cart);
 
 
@@ -62,8 +60,7 @@ function App({featured}) {
 
 function App2() {
   let [featured, setFeatured] = useState([]);
-  featured = randomizedCall();
-  console.log('test');
+  featured = randomizedCall()
 
   return(
     <div className="lol">
