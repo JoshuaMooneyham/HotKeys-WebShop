@@ -460,6 +460,7 @@ code {
   border: none;
   border-radius: 5px;
   align-self: center;
+  color: #e0fbfc;
 }
 
 .create-user-btn:hover {
@@ -669,7 +670,7 @@ code {
   border: none;
   padding: 10px;
   font-size: 1.5em;
-  color: #8dc1ba;
+  color: #e0fbfc;
   background-color: rgba(0, 0, 0, 0.303);
 }
 

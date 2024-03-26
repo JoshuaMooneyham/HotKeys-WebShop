@@ -2,22 +2,24 @@ import { useEffect, useState } from "react";
 import { GetProducts } from "../crud-requests/CrudRequests";
 
 // ====={ Renders out every current product to let you choose one to delete }=====
+
 export default function RenderAllItems({ setState }) {
 
     let [data, setData] = useState([]);
     let [selected, setSelected] = useState(null);
     const [current, setCurrent] = useState(undefined)
-
     data = GetProducts();
 
-    useEffect(() => {
-        console.log('fetching', selected)
+    // ====={ Fetches the currently selected product from API }=====
+
+    useEffect(() => { 
         fetch('https://api.escuelajs.co/api/v1/products/' + selected)
             .then(response => response.json())
                 .then(data => setCurrent(data))
     }, [selected])
 
     // ====={ Formats each individual item card }=====
+
     function ItemCard({item}) {
     
         return(
@@ -54,18 +56,16 @@ export default function RenderAllItems({ setState }) {
                 <button
                     className="confirm-delete"
                     onClick={() => {
-                    fetch('https://api.escuelajs.co/api/v1/products/'+ selected, {
-                        method: 'DELETE'
-                    });
-                    setData(data.map(element => {
-                        if (element.id == selected) {
-                            data.splice(data.indexOf(element), 1);
-                            console.log(data)
-                        }
-                    }));
-                }}>CONFIRM
-                </button> 
-
+                        fetch('https://api.escuelajs.co/api/v1/products/'+ selected, {
+                            method: 'DELETE'
+                        });
+                        setData(data.map(element => {
+                            if (element.id == selected) {
+                                data.splice(data.indexOf(element), 1);
+                            }
+                        })
+                    );
+                }}>CONFIRM</button> 
             </div>
         </div>
     )

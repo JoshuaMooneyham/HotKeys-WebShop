@@ -12,7 +12,9 @@ function App({featured}) {
   const [currentUser, setCurrentUser] = useState(null);
   const [cart, setCart] = useState([]);
 
-  useEffect(() => { // pull current user from local storage
+  // pull current user from local storage
+
+  useEffect(() => { 
     const data = window.localStorage.getItem('currentUser');
     if (data !== undefined) {
     const obj = JSON.parse(data);
@@ -20,7 +22,9 @@ function App({featured}) {
     }
   }, [])
 
-  useEffect(() => { // pull cart items from local storage
+  // pull cart items from local storage
+
+  useEffect(() => { 
     const data = window.localStorage.getItem('cartItems');
     if (data !== undefined) {
     const obj = JSON.parse(data);
@@ -28,12 +32,15 @@ function App({featured}) {
     }
   }, [])
 
-  useEffect(() => { // push current user to local storage on change
+  // push current user to local storage on change
+
+  useEffect(() => { 
     window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    console.log('saved');
   }, [currentUser])
 
-  useEffect(() => { // push current cart items
+  // push current cart items
+  
+  useEffect(() => { 
     window.localStorage.setItem('cartItems', JSON.stringify(cart));
   }, [cart])
 

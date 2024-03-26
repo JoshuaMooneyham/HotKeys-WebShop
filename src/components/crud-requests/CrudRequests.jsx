@@ -80,17 +80,16 @@ export function photoFormatter(photos) {
 // ##### USER DATA #####
 
 export function GetUsers() {
-    const [products, setProducts] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(()=> {
     fetch('https://api.escuelajs.co/api/v1/users')
         .then(response => response.json())
-            .then(data => setProducts(data))
+            .then(data => setUsers(data))
     }, [])
     // vv Parses the list of photos into actual URLs vv
-    // products.forEach(product => product.images = photoFormatter(product.images));
 
-    return products
+    return users
 }
 
 export function PostUsers(obj) {
@@ -103,34 +102,4 @@ export function PostUsers(obj) {
             body: JSON.stringify(obj) // the given object is inserted and stringified here
         })
     }, [])
-}
-
-
-
-// Testing functions
-
-export function TestingGP() {
-    let [users, setUsers] = useState([]);
-    users = GetUsers();
-    console.log(users)
-
-    function FormatUser({user}) {
-        console.log(user);
-        return (
-            <div>
-                <h1>{user.id}</h1>
-                <h1>{user.email}</h1>
-                <h1>{user.password}</h1>
-                <h1>{user.name}</h1>
-                <h1>{user.role}</h1>
-                <img src={user.avatar} alt=":(" />
-            </div>
-        );
-    }
-
-    return (
-        <div>
-            {users.map((user) => <FormatUser user={user}/>)}
-        </div>
-    );
 }

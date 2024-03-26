@@ -1,4 +1,4 @@
-import { GetProducts, GetUsers } from "../crud-requests/CrudRequests";
+import { GetUsers } from "../crud-requests/CrudRequests";
 import { useState } from "react";
 
 
@@ -9,9 +9,6 @@ export function NewProduct({ setState }) {
     const [desc, setDesc] = useState(null);
     const [category, setCategory] = useState(1);
     const [images, setImages] = useState(null);
-
-    let data = GetProducts();
-
 
     function submitHandler() {
         fetch('https://api.escuelajs.co/api/v1/products', {
@@ -36,26 +33,22 @@ export function NewProduct({ setState }) {
                     setState(1)
                 }}>{'Go Back >'}</p>
                 <form className='new-item-form' onSubmit={submitHandler}>
-                    <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}
-                    </label>
+                    <label htmlFor="title-entry" className="entry-label title-entry-label">Item name:{' '}</label>
                     <input type="text" name="title-entry" className="title-entry entry" onChange={(e) => {
                         setTitle(e.target.value);
                     }} />
 
-                    <label htmlFor="price-entry" className='entry-label price-entry-label'>Price:{' '}
-                    </label>
+                    <label htmlFor="price-entry" className='entry-label price-entry-label'>Price:{' '}</label>
                     <input type="number" name="price-entry" className="entry price-entry" onChange={(e) => {
                         setPrice(Number(e.target.value));
                     }} />
 
-                    <label htmlFor="desc-entry" className='entry-label desc-entry-label'>Description:{' '}
-                    </label>
+                    <label htmlFor="desc-entry" className='entry-label desc-entry-label'>Description:{' '}</label>
                     <input type="text" name="desc-entry" className="entry desc-entry" onChange={(e) => {
                         setDesc(e.target.value);
                     }} />
 
-                    <label htmlFor="cat-entry" className='entry-label cat-entry-label'>Category:{' '}
-                    </label>
+                    <label htmlFor="cat-entry" className='entry-label cat-entry-label'>Category:{' '}</label>
                     <input type="text" name="cat-entry" className="entry cat-entry" onChange={(e) => {
                         const lowerValue = e.target.value.toLocaleLowerCase()
                         setCategory(
@@ -68,8 +61,7 @@ export function NewProduct({ setState }) {
                     }} />
                     {category == 0 ? <span className="item-valid">* Please enter a valid category! (clothes, electronics, furniture, shoes, miscellaneous)</span> : ''}
 
-                    <label htmlFor="image-entry" className='entry-label image-entry-label'>Image URL:{' '}
-                    </label>
+                    <label htmlFor="image-entry" className='entry-label image-entry-label'>Image URL:{' '}</label>
                     <input type="text" name="image-entry" className="entry image-entry" onChange={(e) => {
                         setImages([e.target.value]);
                     }} />
@@ -87,7 +79,6 @@ export function NewUser({ setCurUse }) {
     const [password, setPassword] = useState(null);
     const [email, setEmail] = useState(null);
     const [role, setRole] = useState('customer');
-    // const [image, setImage] = useState('https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png');
     const image = 'https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png';
 
     function submitHandler() {
@@ -158,7 +149,6 @@ export function LogIn({setCurUse}) {
     let [createOrLogin, toggleCOL] = useState(true);
     let userList = GetUsers();
     let foundUser = null;
-    console.log(userList);
 
     const findUser = () => {
         for (let u in userList) {
@@ -170,20 +160,17 @@ export function LogIn({setCurUse}) {
         setValidCheck(false)
     }
     
-
     return(
         <div className="bs-container">
             <h1 className="login-header">{createOrLogin ? 'Create an account' : 'Log In'}</h1>
             { !createOrLogin ? 
             <div className='login-container'>
-
                 <div className="create-account-inputs">
                     <label 
                         htmlFor="login-entry" 
                         className='entry-label login-entry-label'
                         >Username or Email:{' '}
                     </label>
-
                     <input 
                         type="text" 
                         name="login-entry" 
@@ -191,7 +178,7 @@ export function LogIn({setCurUse}) {
                         value={login} 
                         onChange={(e) => {
                             setLogin(e.target.value);
-                            }}
+                        }}
                     />
 
                     <label 
@@ -199,7 +186,6 @@ export function LogIn({setCurUse}) {
                         className='entry-label password-entry-label'
                         >Password:{' '}
                     </label>    
-
                     <input 
                         type="password" 
                         name="desc-entry" 
@@ -207,12 +193,10 @@ export function LogIn({setCurUse}) {
                         value={pass} 
                         onChange={(e) => {
                             setPass(e.target.value);
-                            console.log(e.target.value)
                         }} 
                     />
                 </div>
                 {validCheck ? '' : <span className="valid-span">*The combination you entered is incorrect!</span>}
-
                 <button 
                     className="create-user-btn"
                     type="btn" 
@@ -223,9 +207,8 @@ export function LogIn({setCurUse}) {
                         setPass('')
                     }}>Submit
                 </button>
-                
-            </div> : <NewUser setCurUse={setCurUse}/>
-            }
+            </div> 
+            : <NewUser setCurUse={setCurUse}/>}
             <div className="login-spans">
                 <span className="stat-span">{createOrLogin ? 'Already have an account? ' : "Don't have an account? "}</span>
                 <span className='link-span' onClick={()=> toggleCOL(!createOrLogin)}>{createOrLogin ? 'Log In' : 'Create One'}</span>

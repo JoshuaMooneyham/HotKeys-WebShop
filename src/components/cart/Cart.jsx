@@ -21,7 +21,9 @@ function CartItem({item, cart, setCart}) {
                                 cart.splice(cart.indexOf(item), 1);
                                 window.localStorage.setItem('cartItems', JSON.stringify(cart));
                                 setCart([...cart])
-                    }}}>Remove</button>
+                            }
+                        }
+                    }>Remove</button>
                 </div>
             </div>
         </div>
@@ -44,13 +46,13 @@ export default function TestCart ({cart, setCart}) {
                 <div>
                     <button className="clear-button" onClick={() => setCart([])}>CLEAR CART</button>
                 </div>
-                <div className= "subtotal">{checkout ? 'Shipped!' :
-                `Subtotal: $${total}`}
-                </div>
+                <div className= "subtotal">{checkout ? 'Shipped!' : `Subtotal: $${total}`}</div>
                 <div>
                     <button className='checkout-button' onClick={() => {
                         setCart([]);
-                        toggleCheckout(true);
+                        if (cart.length > 0) {
+                            toggleCheckout(true);
+                        }
                     }}>CHECKOUT</button>
                 </div>
             </div>
