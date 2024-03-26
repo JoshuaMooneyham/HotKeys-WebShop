@@ -128,7 +128,7 @@ code {
 
 .featured {
   /* vv only change, revert if wanted/needed vv */
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   /* margin: 10px; */ /* initial margin */
 
   display:grid;
@@ -778,6 +778,7 @@ code {
 
 .cart-container {
   margin: 20px;
+  height: 240px;
   background-color: #cae9e4;
   background:#e7dbb6;
   border-radius: 10px;

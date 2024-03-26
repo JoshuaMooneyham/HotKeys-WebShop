@@ -1,9 +1,11 @@
 import { useState } from "react";
 
+
+
 function CartItem({item, cart, setCart}) {
     const [test, toggleTest] = useState(false);
     console.log(cart)
-
+    
 
     // // placeholder image in case of bad url
     // const [placeholderImg, setPlaceHolderImg] = useState('For Invalid Images')
@@ -37,7 +39,12 @@ function CartItem({item, cart, setCart}) {
 }
 
 export default function TestCart ({cart, setCart}) {
-console.log(cart);
+    console.log(cart);
+    let total = cart.reduce((accumulator, items) => accumulator + items.price, 0);
+    console.log(total);
+    console.log(cart.length)
+    
+    
 
     // return (
     //     <div className= "header-container">
@@ -57,7 +64,18 @@ console.log(cart);
             <div className="cart-items">
                 {cart.map((item) => <CartItem item={item} cart={cart} setCart={setCart}/>)}
             </div>
-
+            <div className="checkoutContainer">
+                <div>
+                    <button className="clearButton" onClick={() => setCart([])}>CLEAR CART</button>
+                </div>
+                <div className= "subtotal">
+                Subtotal: ${total}
+                </div>
+                <div>
+                    <button>CHECKOUT</button>
+                </div>
+            </div>
         </div>
     );
 }
+
