@@ -782,7 +782,7 @@ code {
   margin: 10px;
   justify-content: space-between;
   width: 100%;
-  border: yellowgreen solid;
+  /* border: yellowgreen solid; */
 
   align-items:start;
   padding-bottom: 10px;
@@ -1034,5 +1034,30 @@ code {
 }
 
 .checkoutContainer {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #293241;
+  border-radius: 5px;
+  margin-top: 25px;
   text-align: center;
+}
+
+.subtotal {
+  font-size: 45px;
+  color: #EE6C3D;
+}
+.checkoutContainer button {
+  font-style: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  border-color:#293241;
+  border-width:bold;
+  height: 4.5rem;
+  width: 7.5rem;
+  color:#293241;
+}
+.checkoutContainer button:hover {
+  background-color: #24324b;
+  color:aliceblue;
 }
