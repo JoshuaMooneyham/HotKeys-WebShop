@@ -1,13 +1,11 @@
-import { useState } from "react";
-
-
-
 function CartItem({item, cart, setCart}) {
 
     return(
         <div className="cart-container">
             <div className="cart-card">
-                <img src={item.images[0]} alt="gfn" />
+                <div className="cart-card-image-box">
+                    <img src={item.images[0]} alt="gfn" />
+                </div>
                 <div className="cartWOImage">
                     <div className="cart-name-and-price">
                         <h2 className="cart1">{item.title}</h2>
@@ -29,22 +27,7 @@ function CartItem({item, cart, setCart}) {
 }
 
 export default function TestCart ({cart, setCart}) {
-    console.log(cart);
     let total = cart.reduce((accumulator, items) => accumulator + items.price, 0);
-    console.log(total);
-    console.log(cart.length)
-    
-    
-
-    // return (
-    //     <div className= "header-container">
-    //         <h1>CART</h1>
-    //         <div className="cart-items">
-    //             {cart.map((item) => <CartItem item={item} cart={cart} setCart={setCart}/>)}
-    //         </div>
-
-    //     </div>
-    // );
 
     return (
         <div className="overall-cart-container" >
@@ -56,13 +39,15 @@ export default function TestCart ({cart, setCart}) {
             </div>
             <div className="checkoutContainer">
                 <div>
-                    <button className="clearButton" onClick={() => setCart([])}>CLEAR CART</button>
+                    <button className="clear-button" onClick={() => setCart([])}>CLEAR CART</button>
                 </div>
                 <div className= "subtotal">
                 Subtotal: ${total}
                 </div>
                 <div>
-                    <button>CHECKOUT</button>
+                    <button className='checkout-button' onClick={() => {
+                        setCart([]);
+                    }}>CHECKOUT</button>
                 </div>
             </div>
         </div>

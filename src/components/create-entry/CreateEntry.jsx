@@ -28,7 +28,6 @@ export function NewProduct({ setState }) {
             })
         })
     }
-    console.log(data);
 
     return( 
         <div className="wrapper">
@@ -88,10 +87,8 @@ export function NewUser({ setCurUse }) {
     const [password, setPassword] = useState(null);
     const [email, setEmail] = useState(null);
     const [role, setRole] = useState('customer');
-    const [image, setImage] = useState('https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png');
-
-    let data = GetUsers();
-
+    // const [image, setImage] = useState('https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png');
+    const image = 'https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png';
 
     function submitHandler() {
         fetch('https://api.escuelajs.co/api/v1/users', {
@@ -115,7 +112,6 @@ export function NewUser({ setCurUse }) {
             'avatar': image
         })
     }
-    // console.log(data);
 
     return( 
         <div className='add-new-user'>
@@ -154,7 +150,7 @@ export function NewUser({ setCurUse }) {
     );
 }
 
-export function LogIn({setCurUse, curUse}) {
+export function LogIn({setCurUse}) {
     
     let [pass, setPass] = useState('');
     let [login, setLogin] = useState('');
