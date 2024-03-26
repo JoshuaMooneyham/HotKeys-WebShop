@@ -1067,7 +1067,7 @@ code {
   display: flex;
   justify-content: space-between;
   background-color: #293241;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-top: 25px;
   text-align: center;
 }
