@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/HotKeys-WebShop/static/css/main.4a5cc490.css",
+    "main.js": "/HotKeys-WebShop/static/js/main.9b4c91b6.js",
+    "index.html": "/HotKeys-WebShop/index.html",
+    "main.4a5cc490.css.map": "/HotKeys-WebShop/static/css/main.4a5cc490.css.map",
+    "main.9b4c91b6.js.map": "/HotKeys-WebShop/static/js/main.9b4c91b6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a5cc490.css",
+    "static/js/main.9b4c91b6.js"
+  ]
+}
