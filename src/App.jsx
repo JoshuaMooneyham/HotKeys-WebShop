@@ -53,7 +53,7 @@ function App({featured}) {
             <Route path='/HotKeys-WebShop/' element={<LandingWelcome featured={featured} shoppingCart={cart} addToCart={setCart}/>}/>
             <Route path='/HotKeys-WebShop/shopping' element={<HappyShopping cart={cart} setCart={setCart}/>}/>
             <Route path='/HotKeys-WebShop/cart' element={<TestCart cart={cart} setCart={setCart}/>}/>
-            <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
+            <Route path='/HotKeys-WebShop/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
           </Routes>
         </div>
       </div>

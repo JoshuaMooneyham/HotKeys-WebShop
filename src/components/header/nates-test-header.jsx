@@ -15,10 +15,10 @@ export default function TestHeader () {
                 </div>
             </div>
             <ul className="links">
-                <CustomLink to='/'>Home</CustomLink>
-                <CustomLink to='/shopping'>Shop</CustomLink>
-                <CustomLink to='/cart' ><FaShoppingCart id="shoppingIcon" size= "2rem" /></CustomLink>
-                <CustomLink to='/user' ><MdAccountCircle id ="accountIcon"size= "2rem"/></CustomLink>
+                <CustomLink to='/HotKeys-WebShop/'>Home</CustomLink>
+                <CustomLink to='/HotKeys-WebShop/shopping'>Shop</CustomLink>
+                <CustomLink to='/HotKeys-WebShop/cart' ><FaShoppingCart id="shoppingIcon" size= "2rem" /></CustomLink>
+                <CustomLink to='/HotKeys-WebShop/user' ><MdAccountCircle id ="accountIcon"size= "2rem"/></CustomLink>
             </ul>
         </nav>
     );
