@@ -11,6 +11,7 @@ import HappyShopping from './components/Shopping/ShoppingDisplay';
 function App({featured}) {
   const [currentUser, setCurrentUser] = useState(null);
   const [cart, setCart] = useState([]);
+  const [currentView, setCurrentView] = useState('home')
 
   // pull current user from local storage
 
