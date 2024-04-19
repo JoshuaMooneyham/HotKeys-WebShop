@@ -50,9 +50,9 @@ function App({featured}) {
         <TestHeader />
         <div className='container'>
           <Routes>
-            <Route path='/' element={<LandingWelcome featured={featured} shoppingCart={cart} addToCart={setCart}/>}/>
-            <Route path='/shopping' element={<HappyShopping cart={cart} setCart={setCart}/>}/>
-            <Route path='/cart' element={<TestCart cart={cart} setCart={setCart}/>}/>
+            <Route path='/HotKeys-WebShop/' element={<LandingWelcome featured={featured} shoppingCart={cart} addToCart={setCart}/>}/>
+            <Route path='/HotKeys-WebShop/shopping' element={<HappyShopping cart={cart} setCart={setCart}/>}/>
+            <Route path='/HotKeys-WebShop/cart' element={<TestCart cart={cart} setCart={setCart}/>}/>
             <Route path='/user' element={currentUser == null ? <LogIn setCurUse={setCurrentUser}/> : <MyAccount setCurUse={setCurrentUser} curUse={currentUser}/>}/>
           </Routes>
         </div>
