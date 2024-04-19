@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/HotKeys-WebShop/static/css/main.4a5cc490.css",
-    "main.js": "/HotKeys-WebShop/static/js/main.e1c5f0aa.js",
+    "main.js": "/HotKeys-WebShop/static/js/main.f53ce9fe.js",
     "index.html": "/HotKeys-WebShop/index.html",
     "main.4a5cc490.css.map": "/HotKeys-WebShop/static/css/main.4a5cc490.css.map",
-    "main.e1c5f0aa.js.map": "/HotKeys-WebShop/static/js/main.e1c5f0aa.js.map"
+    "main.f53ce9fe.js.map": "/HotKeys-WebShop/static/js/main.f53ce9fe.js.map"
   },
   "entrypoints": [
     "static/css/main.4a5cc490.css",
-    "static/js/main.e1c5f0aa.js"
+    "static/js/main.f53ce9fe.js"
   ]
 }
