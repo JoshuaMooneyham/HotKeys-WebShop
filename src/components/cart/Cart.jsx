@@ -37,7 +37,7 @@ export default function TestCart ({cart, setCart}) {
     return (
         <div className="overall-cart-container" >
             <div className="cart-header">
-                <h1 className="sectionHeader">CART</h1>
+                <h1 className="Cart-Header">CART</h1>
             </div>
             <div className="cart-items">
                 {cart.map((item) => <CartItem item={item} cart={cart} setCart={setCart}/>)}

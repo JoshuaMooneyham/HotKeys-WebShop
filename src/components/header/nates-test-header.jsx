@@ -8,18 +8,22 @@ export default function TestHeader () {
 
     return (
         <nav className='nav'>
-            <div className="header-icon">
-                <img src="hotkey lights.png" alt="header image"></img>
-                <div className="header-title">
-                    <h2 className="sectionHeader">HOT KEYS...   EVERYTHING YOU NEED ALL IN ONE PLACE</h2>
-                </div>
+            <div className="inner-container-header">
+                {/* <div className="header-icon"> */}
+                    <div className="hotkeys-icon-test">
+                        <img className="hotkeys-logo" src="hotkey lights.png" alt="header image"/>
+                    </div>
+                    <div className="header-title">
+                        <h2 className="sectionHeader">HOT KEYS...   EVERYTHING YOU NEED ALL IN ONE PLACE</h2>
+                    </div>
+                {/* </div> */}
+                <ul className="links">
+                    <CustomLink to='/HotKeys-WebShop/'>Home</CustomLink>
+                    <CustomLink to='/HotKeys-WebShop/shopping'>Shop</CustomLink>
+                    <CustomLink to='/HotKeys-WebShop/cart' ><FaShoppingCart id="shoppingIcon" size= "2rem" /></CustomLink>
+                    <CustomLink to='/HotKeys-WebShop/user' ><MdAccountCircle id ="accountIcon"size= "2rem"/></CustomLink>
+                </ul>
             </div>
-            <ul className="links">
-                <CustomLink to='/HotKeys-WebShop/'>Home</CustomLink>
-                <CustomLink to='/HotKeys-WebShop/shopping'>Shop</CustomLink>
-                <CustomLink to='/HotKeys-WebShop/cart' ><FaShoppingCart id="shoppingIcon" size= "2rem" /></CustomLink>
-                <CustomLink to='/HotKeys-WebShop/user' ><MdAccountCircle id ="accountIcon"size= "2rem"/></CustomLink>
-            </ul>
         </nav>
     );
 }

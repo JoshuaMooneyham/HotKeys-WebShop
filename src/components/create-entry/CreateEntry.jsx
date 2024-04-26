@@ -224,7 +224,7 @@ export function LogIn({setCurUse}) {
                         }} 
                     />
                 </div>
-                {validCheck ? '' : <span className="valid-span">*The combination you entered is incorrect!</span>}
+                {validCheck ? <div className='valid-span'></div> : <span className="valid-span">*The combination you entered is incorrect!</span>}
                 <button 
                     className="create-user-btn"
                     type="btn" 
